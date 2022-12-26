@@ -1,0 +1,380 @@
+*{
+    overflow-x: hidden;
+    font-family: "Roboto Condensed",sans-serif;
+    box-sizing: border-box;
+  }
+nav
+{
+    display: flex !important;
+    justify-content: space-around !important;
+    align-items: center !important;
+    min-height: 10px !important;
+    background-color: #333 !important;
+    color: white !important;
+    text-transform: uppercase !important;
+}
+@namespace url("http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul"); /* only needed once */
+
+/* navbar pc iconok */
+
+#yticon{
+    position: relative;
+    top: 4px;
+    padding-left:5px !important;
+    padding-right:5px !important;
+   
+  
+}
+#dcicon{
+
+    padding-left:5px !important;
+    padding-right:5px !important;
+    
+}
+#progressicon{
+ 
+    padding-left:5px !important;
+    padding-right:5px !important;
+}
+
+
+
+
+
+/* navbar pc linkek + logo */
+#Tormenetedpowerlogo{
+    height: 40% !important;
+    width: 40% !important;
+    padding: 10px !important;
+}
+
+.nav-links
+{
+    display: flex !important;
+    width: 40% !important;
+}
+.nav-links li{
+    list-style:none !important;
+    display: inline-block !important;
+    padding-left:30px !important;
+    padding-right:30px !important;
+
+}
+.nav-links a{
+    margin: 0px !important;
+    text-decoration: none !important;
+    letter-spacing: 3px !important;
+    font-weight: bold !important;
+    font-size: 18px !important;
+}
+.nav-links :hover{
+    color:rgb(146, 146, 146) !important;
+}
+.burger{
+    display: none !important;
+    cursor: pointer !important;
+}
+.burger div{
+    width: 25px !important;
+    height: 3px !important;
+    background-color: white !important;
+    margin: 5px !important;
+}
+  .container-xxl{
+
+    
+    box-shadow:  60px 60px 60px 60px #141412;
+    color:white;
+    width: 100%;
+    height: 120vh;
+
+    overflow: hidden;
+    background-color:#121212;
+  }
+  .navbar-custom {
+    background-color: rgb(29, 30, 33);
+
+}
+.nav-item:hover{
+    color:#dcdcdc;
+    
+}
+#box {
+    background-color: rgb(29, 30, 33);
+padding: 20px;
+    font-size: 22px;
+    color: #fff;
+    text-align: center;
+    padding-left: 70px;
+width: 100%;
+}
+#tovabbi {
+    font-size: 15px;
+    text-decoration: underline;
+    font-family: 'NunitoB';
+    color: #adb5bd;
+}
+.card-header{
+    background-color: #202020 !important;
+
+}
+.card-body{
+    background-color: #202020;
+}
+#heal-elvui{
+    margin-left: 2%;
+    border: 1px solid white;
+    max-width: 60%;
+    max-height: 60%;
+    border-radius: 5%;
+}
+.card{
+    background-color: #202020 !important;
+    border: 1px solid white !important;
+}
+.container-addon{
+    background-color: #202020;
+    color: white;
+    width: 100%;
+    margin-top: 15%;
+
+}
+
+#heal-full{
+    margin-left: 2%;
+    border: 1px solid white;
+    width: 50%;
+    height: 50%;
+    border-radius: 5%;
+}
+
+
+.example_e {
+    border: 1px solid white;
+	border: none;
+	background: rgba(255, 136, 0, 0.979);
+	color: #ffffff !important;
+	font-weight: 100;
+	padding: 20px;
+	text-transform: uppercase;
+	border-radius: 6px;
+	display: inline-block;
+	transition: all 0.3s ease 0s;
+}
+.example_e:hover {
+    border: 1px solid white;
+    background: rgba(194, 154, 24, 0.979);
+	color: rgba(194, 154, 24, 0.979) !important;
+	font-weight: 700 !important;
+	letter-spacing: 2px;
+	background: none;
+	transition: all 0.3s ease 0s;
+}
+#gomb{
+    text-decoration: none;
+    color:white;
+}
+#warning{
+    background-color: rgb(204, 204, 9);
+    color: black;
+}
+#myInput{
+    opacity:0;
+}
+.blur.active {
+    filter: blur(10px);
+    pointer-events: none;
+    user-select: none;
+}
+
+#popup {
+    /*NEW*/
+    position: fixed;
+    top: 40%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 20%;
+    padding: 50px;
+    visibility: hidden;
+    opacity: 0;
+    transition: 0.5s;
+}
+
+#popup.active {
+    width: 650px;
+    top: 53%;
+    visibility: visible;
+    opacity: 1;
+    transition: 0.5s;
+}
+/* ---------------------------------------------------------------------*/
+.popup{
+    width: max-content;
+    margin: auto;
+    text-align: center
+}
+.popup img{
+    width: 30%;
+    height: 50%;
+    cursor: pointer
+}
+.show-pop {
+    z-index: 990;
+    display: none;
+    
+}
+.show-pop .overlay{
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,.66);
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+.show-pop  .img-show-pop {
+    width: 30%;
+    height: 50%;
+    border: solid white;
+    background: #FFF;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    overflow: hidden
+}
+.img-show-pop  span{
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    z-index: 99;
+    cursor: pointer;
+}
+.img-show-pop  img{
+    width: 100%;
+    height: 100%;
+    position: absolute; 
+    top: 0;
+    left: 0;
+}
+.alert-box {
+	padding: 15px;
+    margin-bottom: 20px;
+    border: 1px solid transparent;
+    border-radius: 4px;  
+    width: 40%;
+
+}
+.success {
+    font-size: 20px;
+    position: fixed;
+    top: 40px;
+    right: 50%;
+    transform: translate(50%, -50%); 
+    color: #3c763d;
+    background-color: #dff0d8;
+    border-color: #d6e9c6;
+    display: none;
+
+}
+.btn{
+    border: none !important;
+    background-color: orange !important;
+}
+.btn:hover{
+    border: none !important;
+    background-color: rgb(177, 124, 27) !important;
+}
+/*End style*/
+#addnos-label{
+    margin: auto;
+    width: 40%;
+    padding-top:30px;
+    padding-bottom:30px;
+}
+#addnos-label input{
+    height: 30px;
+    width: 500px;
+    text-transform: uppercase;
+}
+  p,
+label {
+    font: 1rem 'Fira Sans', sans-serif;
+    overflow-y: hidden;
+}
+
+input {
+    margin: .4rem;
+}
+#addon-checkbox{
+    overflow-y: hidden;
+    margin: auto;
+    width: 40%;
+    
+}
+#addon-checkbox input{
+    overflow-y: hidden;
+    height: 40px;
+    width: 30px;
+    text-transform: uppercase;
+}
+
+  input[type=file]{
+  background:#2d2d2d;}
+  textarea{
+    width: 450px;
+    height: 200px;
+  }
+  .clone-hide
+  {
+    visibility: hidden;
+  }
+/* navbar telefonso*/
+@media (max-width: 992px) {
+    .navbar-collapse {
+        position: fixed !important;
+        z-index: 999 !important;
+        top:0;
+        left: 0;
+        width: 50%;
+        height: 100%;
+        padding-left: 0;
+        padding-right: 0;
+
+    }
+
+    .navbar-collapse.collapsing {
+        left: -25%;
+        transition: height 0s ease;
+        background: rgba(14, 11, 11, 0.4);
+        
+    }
+
+    .navbar-collapse.show {
+
+        left: 0;
+        transition: left 300ms ease-in-out;
+        background: rgba(14, 11, 11, 0.4);
+        
+    }
+
+    .navbar-toggler.collapsed ~ .navbar-collapse {
+        transition: left 500ms ease-in-out;
+        background: rgba(14, 11, 11, 0.4);
+    }
+  
+}
+@media (max-width: 992px) {
+    #popup{
+        max-width: 500px;
+
+    }
+    .show-pop .img-show-pop{
+        width: 70%;
+        height: 30%;
+    }
+}
+
+
+.navbar-inverse .navbar-toggler-icon{
+         background-image:url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 32 32' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='rgba(255, 255, 255, 0.5)' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 8h24M4 16h24M4 24h24'/%3E%3C/svg%3E")
+}
