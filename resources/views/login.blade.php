@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="{{ secure_asset('register_css/style.css') }}">
+  <link rel="stylesheet" href="register_css/style.css">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <link rel="stylesheet" href="fonts/material-icon/css/material-design-iconic-font.min.css">
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -31,29 +31,18 @@
                     <ul class="nav-links">
     
                         <li id="kezdo-mobile">
-                            <a href="/" id="kezdo">Kezdőlap</a>
+                            <a href="/" id="kezdo">Homepage</a>
                         </li>
                         
                         <li  id="info-mobile">
-                            <a href="#" id="info" >Info</a>
+                            <a href="Info" id="info">Logs</a>
                         </li>
     
                         <li id="addon-mobile">
                             <a href="Addon">Addons</a>
                         </li>
                        
-                        <li id="yticon">
-                          <a href="#"><span class="fa-brands fa-youtube" aria-hidden="true" style="font-size:20px"></span></a>
-                        </li>
-    
-                        <li id="dcicon" >
-                            <span class="bi bi-discord" style="font-size:20px"></span>
-                        </li>
-    
-                        <li id="progressicon">
-                            <a href="https://tauriprogress.github.io/guild/Tormented%20Power?realm=[HU]%20Tauri%20WoW%20Server"><img id="progresskep" src="{{asset('Index_kepek/tauriprogresslogo.png')}}" height="20px">
-                            </a>
-                        </li>
+
                     
                     </ul>
                 </div>
@@ -72,25 +61,26 @@
                     <div class="signin-content">
                         <div class="signin-image">
                             <figure><img src="{{asset('Index_kepek/login_kep.png')}}" alt="sing up image"></figure>
-                            <a href="/register" class="signup-image-link">Nincs még fiokom!</a>
+                            <a href="/register" class="signup-image-link">I don't have an account yet!</a>
                         </div>
     
                         <div class="signin-form">
-                            <h2 class="form-title">Bejelentkezés</h2>
+                            <h2 class="form-title">Login</h2>
                            
                             <form method="POST" class="register-form" id="login-form" action="/users/authenticate">
                                 @csrf
                                 <div class="form-group">
                                     <label for="your_name"><i class="zmdi zmdi-account material-icons-name"></i></label>
-                                    <input type="text" name="name" id="your_name" placeholder="Név"/>
+                                    <input type="text" name="name" id="your_name" placeholder="Name"/>
                                     @error('name')
-                                    <p class="text-red-500 text-xs mt-1" style="color:red">Nem egyezik meg a  jelszó vagy a  felhasználónév*</p>
+                                    <p class="text-red-500 text-xs mt-1" style="color:red">
+Password or username do not match*</p>
                                     @enderror
 
                                 </div>
                                 <div class="form-group">
                                     <label for="your_pass"><i class="zmdi zmdi-lock"></i></label>
-                                    <input type="password" name="password" id="your_pass" placeholder="Jelszó"/>
+                                    <input type="password" name="password" id="your_pass" placeholder="Password"/>
                                 </div>
                                 <!--
                                 <div class="form-group">
@@ -99,7 +89,7 @@
                                 </div> 
                                 -->
                                 <div class="form-group form-button">
-                                    <input type="submit" name="signin" id="signin" class="form-submit" value="Bejelentkezés"/>
+                                    <input type="submit" name="signin" id="signin" class="form-submit" value="Login"/>
                                 </div>
                             </form>
                         </div>

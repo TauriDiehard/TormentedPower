@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="{{ secure_asset('css/Addon.css') }}">
+  <link rel="stylesheet" href="{{ asset('css/Addon.css') }}">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css'>  
@@ -61,7 +61,7 @@
                 <div class="line3"></div>
             </div>
         </nav>
-        <script src={{asset('Index_js/mainjava.js')}}></script>
+        <script src="{{asset('Index_js/mainjava.js')}}"></script>
         <div class="container-xxl">
             <div class="row">
               <div class="col-sm-3">

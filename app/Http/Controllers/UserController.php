@@ -6,18 +6,20 @@ use Illuminate\Http\Request;
 use App\Models\User;
 use Illuminate\Validation\Rule;
 use Illuminate\Support\Facades\Hash;
+use App\Http\Controllers\HomeController;
+use Illuminate\Foundation\Auth\VerifiesEmails;
 
 class UserController extends Controller
 {
     public function create(){
         return view('register');
     }
-
+    
     public function store(Request $request){
         $formFields = $request->validate([
             'name' => ['required', 'min:5','unique:users'],
             'email' => ['required', 'email', Rule::unique('users', 'email')],
-            'password' => 'required|confirmed|min:6'    
+            'password' => 'required|confirmed|min:6'
         ]);
 
         $formFields['password'] = Hash::make($formFields['password']);

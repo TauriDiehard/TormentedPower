@@ -3,7 +3,7 @@
     <head>
         <meta charset="utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-        <link rel="stylesheet" type="text/css" href="{{ secure_asset('css/create_addon.css') }}">
+        <link rel="stylesheet" type="text/css" href="{{ asset('css/create_addon.css') }}">
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css">
         <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
@@ -64,7 +64,7 @@
                     <div id="addnos-label">
                         <label> Kezdő logo:</label><br/>
                         <input type="file" id="files" name="logo">
-                        <img id="heal-elvui" class="img-fluid" src="{{Storage::disk('s3')->temporaryUrl($listing->logo, '+2 minutes')}}" >
+                        <img id="heal-elvui" class="img-fluid" src="{{ $listing->logo ? asset('storage/'. $listing->logo ) : '' }}" >
                         @error('logo')
                         <p class="text-red-500 text-xs mt-1" style="color:red">Nem töltöttél ki a logot*</p>
                         @enderror
@@ -86,66 +86,10 @@
                         <label for="comment">
                             Kép feltöltés az addonról (max 3 kép, nem muszály kitölteni)
                         </label><br>
-                        <label for="comment">
-                            Első:
-                        </label>
-                        <input type="file" name="imgaddons1" class="myfrm form-control">
-                        <?php
-                        if ($listing->imgaddons1 >= 1 ) {
-                            ?>
-                             <img id="heal-elvui" class="img-fluid" src="{{Storage::disk('s3')->temporaryUrl($listing->imgaddons1, '+2 minutes')}}" onerror="this.style.display='none'">
-                             <?php
-                           }else
-                           {
-                             ?>
-                             <img id="heal-elvui" class="img-fluid" style="display:none;">
-                             <?php
-                           }
-                           ?>
-                        @error('imgaddons1')
-                        <p class="text-red-500 text-xs mt-1" style="color:red">Képnek kell lennie* </p>
-                        @enderror
-                        <br>
-                        <label for="comment">
-                            Második:
-                        </label>
-                        <input type="file" name="imgaddons2" class="myfrm form-control">
-                        <?php
-                        if ($listing->imgaddons2 >= 1 ) {
-                            ?>
-                             <img id="heal-elvui" class="img-fluid" src="{{Storage::disk('s3')->temporaryUrl($listing->imgaddons2, '+2 minutes')}}" onerror="this.style.display='none'">
-                             <?php
-                           }else
-                           {
-                             ?>
-                             <img id="heal-elvui" class="img-fluid" style="display:none;">
-                             <?php
-                           }
-                           ?>
-                        @error('imgaddons2')
-                        <p class="text-red-500 text-xs mt-1" style="color:red">Képnek kell lennie* </p>
-                        @enderror
-                        <br>
-                        <label for="comment">
-                            Harmadik:
-                        </label>
-                        <input type="file" name="imgaddons3" class="myfrm form-control">
-                        <?php
-                        if ($listing->imgaddons3 >= 1 ) {
-                            ?>
-                             <img id="heal-elvui" class="img-fluid" src="{{Storage::disk('s3')->temporaryUrl($listing->imgaddons3, '+2 minutes')}}" onerror="this.style.display='none'">
-                             <?php
-                           }else
-                           {
-                             ?>
-                             <img id="heal-elvui" class="img-fluid" style="display:none;">
-                             <?php
-                           }
-                           ?>
-                        @error('imgaddons3')
-                        <p class="text-red-500 text-xs mt-1" style="color:red">Képnek kell lennie* </p>
-                        @enderror
-
+                        <input type="file" name="imgaddons[]" class="myfrm form-control" multiple>
+                            @error('imgaddons')
+                                <p class="text-red-500 text-xs mt-1" style="color:red">Képnek kell lennie* </p>
+                            @enderror
                     </div>
 
 

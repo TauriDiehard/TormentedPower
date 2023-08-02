@@ -3,7 +3,7 @@
     <head>
         <meta charset="utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-        <link rel="stylesheet" type="text/css" href="{{ secure_asset('css/create_addon.css') }}">
+        <link rel="stylesheet" type="text/css" href="{{ asset('css/create_addon.css') }}">
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css">
         <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
@@ -29,95 +29,77 @@
                 <form id="myForm" method="POST" action="/Addon/store" enctype="multipart/form-data">
                     @csrf
                     <div id="addnos-label">
-                    <a href="/Addon" class="btn btn- primary"> <-Vissza </a>
+                    <a href="/Addon" style="background-color:green !important;" class="btn btn- primary"> <-Vissza </a>
                     </div>
                     <div id="addnos-label">
                       
-                        <label>Addon címe:</label><br/>
-                        <input type="text" name="title" value="{{old('title')}}" placeholder="Addon címe">
+
+                        <div style="margin-left:-30px;" class="page">
+                            <div class="field field_v1" style="margin-top:40px;">
+                                
+                                <input id="first-name" class="field__input" name="title" value="{{old('title')}}" placeholder="e.g. 7.3.5  Arms Warrior WA...">
+                                <span class="field__label-wrap" aria-hidden="true">
+                                <span class="field__label">Title*</span>
+                                </span>
+                            </div>
+                        </div>
                         @error('title')
-                        <p class="text-red-500 text-xs mt-1" style="color:red">Nem töltötted ki a címet*</p>
+                        <p class="text-red-500 text-xs mt-1" style="color:red">You did not fill the title*</p>
                         @enderror
                     </div>
                     
                     <div id="addon-checkbox">
-                        <label>Addon tipusa:</label><br/>
+                        <label>Addon's type*:</label><br/>
 
                         <label for="scales">Weakaura:</label>
-                        <input type="radio" id="scales" name="tags" value="{{old('Weakaura')}}" style="margin-right:30px;">
+                        <input type="radio" id="scales" name="tags" value="{{'Weakaura'}}" style="margin-right:30px;">
 
                         <label for="scales" >Elvui:</label>
-                        <input type="radio" id="scales" name="tags" value="{{old('Elvui')}}" style="margin-right:30px;" >
+                        <input type="radio" id="scales" name="tags" value="{{'Elvui'}}" style="margin-right:30px;" >
 
                         <label for="scales">Opie:</label>
-                        <input type="radio" id="scales" name="tags" value="{{old('Opie')}}" >
+                        <input type="radio" id="scales" name="tags" value="{{'Opie'}}" >
                         @error('tags')
-                        <p class="text-red-500 text-xs mt-1" style="color:red">Nem töltöttél ki tags-et*</p>
+                        <p class="text-red-500 text-xs mt-1" style="color:red">You did not fill the tag*</p>
                         @enderror
                     </div>
                     
                      
                     <div id="addnos-label">
-                        <label> Kezdő logo:</label><br/>
-                        <input type="file" id="files" name="logo">
+                    <label for="images" class="drop-container">
+                    <span class="drop-title" style="color:white;">Startup logo (One IMG)</span>
+                    <span class="drop-title" style="color:white; "><em>Drop file here</em></span>
+
+                        <input type="file"  id="images" accept="image/*" name="logo" >
                         @error('logo')
-                        <p class="text-red-500 text-xs mt-1" style="color:red">Nem töltöttél ki a logot*</p>
+                        <p class="text-red-500 text-xs mt-1" style="color:red">You did not fill the logo*</p>
                         @enderror
+                        </label>
                     </div>
                     
                      <div id="addnos-label">
-                        <label for="comment">
-                            Leírás:
-                        </label><br/>
-             
-                        <!-- multi-line text input control -->
-                        <textarea name="description" value="{{old('description')}}" id="comment">
-                        </textarea>
-                   
-                        
-                    </div>
-
-                    <div id="addnos-label">
-                        <label for="comment">
-                            Kép feltöltés az addonról (max 3 kép, nem muszály kitölteni)
-                        </label><br>
-                        <label for="comment">
-                            Első:
-                        </label>
-                        <input type="file" name="imgaddons1" class="myfrm form-control">
-                        @error('imgaddons1')
-                        <p class="text-red-500 text-xs mt-1" style="color:red">Képnek kell lennie* </p>
-                        @enderror
-                        <br>
-                        <label for="comment">
-                            Második:
-                        </label>
-                        <input type="file" name="imgaddons2" class="myfrm form-control">
-                        @error('imgaddons2')
-                        <p class="text-red-500 text-xs mt-1" style="color:red">Képnek kell lennie* </p>
-                        @enderror
-                        <br>
-                        <label for="comment">
-                            Harmadik:
-                        </label>
-                        <input type="file" name="imgaddons3" class="myfrm form-control">
-                        @error('imgaddons3')
-                        <p class="text-red-500 text-xs mt-1" style="color:red">Képnek kell lennie* </p>
-                        @enderror
+                        <label for="message" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Description:</label>
+<textarea id="message" name="description"  rows="4" class="textarea is-success" style="border:3px solid green; background-color:transparent; color:white;" placeholder="Write your thoughts here..." >
+</textarea>
 
                     </div>
-
-
                     <div id="addnos-label">
-                        <label for="comment">
-                            Import:
-                        </label><br/>
-                        <!-- multi-line text input control -->
-                        <textarea name="import" oninput="validate(this)" value="{{old('import')}}" id="comment"
-                           >
-                        </textarea>
+                    <label for="images" class="drop-container">
+                    <span class="drop-title" style="color:white;">Addons imgs (multy) (Not requried)</span>
+                    <span class="drop-title" style="color:white; "><em>Drop files here</em></span>
+
+                        <input type="file"  id="images" accept="image/*" name="imgaddons[]" multiple>
+                       
+                        </label>
+                    </div>
+
+                        <div id="addnos-label">
+                        <label for="message" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Description*:</label>
+        <textarea id="message" name="import" oninput="validate(this)" value="{{old('import')}}"  rows="4" class="textarea is-success" style="border:3px solid green; background-color:transparent; color:white;" placeholder="Write your thoughts here..." >
+        </textarea>
+
                         @error('import')
-                        <p class="text-red-500 text-xs mt-1" style="color:red">Nem töltötted ki az importot* </p>
+                        <p class="text-red-500 text-xs mt-1" style="color:red">You did not fill the Import* </p>
                         @enderror
                         <script>
                         function validate(input){
@@ -129,7 +111,7 @@
                         
                     </div>
                     <div id="addnos-label">
-                    <input type="submit" class="btn btn-success" value="Submit">
+                    <input type="submit" style="background-color:green !important;" class="btn btn-success" value="Submit">
                 </div>
                    
           
@@ -143,7 +125,7 @@
             </div>
         </div>
     </div>
-
+    <button class="scrollToTopBtn"></button>
         <script>
 $(function () {
     "use strict";
@@ -198,11 +180,7 @@ $(function () {
     });
   });
   </script>
+
     </body>
-    <div id="box">
-        <p>Copyright © 2021 "DieHard" Minden jog fenntartva.</p>
-        <a href="D:\Die hard web\Index\Copyright\copyright.html">
-            <p id=tovabbi>További tudnivalók</p>
-        </a>
-    </div>
+   
     </html>

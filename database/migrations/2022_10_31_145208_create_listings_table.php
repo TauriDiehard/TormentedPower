@@ -21,9 +21,8 @@ class CreateListingsTable extends Migration
             $table->string('description')->nullable();
             $table->text('import');
             $table->string('logo')->nullable();
-            $table->string('imgaddons1')->nullable();
-            $table->string('imgaddons2')->nullable();
-            $table->string('imgaddons3')->nullable();
+            $table->json('imgaddons')->nullable();
+            $table->boolean('status');
             $table->timestamps();
         });
     }

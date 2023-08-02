@@ -36,8 +36,318 @@ nav
     padding-left:5px !important;
     padding-right:5px !important;
 }
+  /*
+  =====
+  ITT KEZTDŐDIK
+  =====
+  */
+.ha-screen-reader{
+    overflow: hidden;
+    width: var(--ha-screen-reader-width, 1px);
+    height: var(--ha-screen-reader-height, 1px);
+    padding: var(--ha-screen-reader-padding, 0);
+    border: var(--ha-screen-reader-border, none);
+  
+    position: var(--ha-screen-reader-position, absolute);
+    clip: var(--ha-screen-reader-clip, rect(1px, 1px, 1px, 1px));
+    overflow: var(--ha-screen-reader-overflow, hidden);
+  }
+  
+
+  
+  .field__input{ 
+    overflow: hidden;
+    --uiFieldPlaceholderColor: var(--fieldPlaceholderColor, #767676);
+    overflow: hidden;
+    background-color: transparent;
+    border-radius: 0;
+    border: none;
+    color:white;
+    font-family: inherit;
+    font-size: inherit;
+  }
+  
+  .field__input:focus::-webkit-input-placeholder{
+    color: var(--uiFieldPlaceholderColor);
+    overflow: hidden;
+  }
+  
+  .field__input:focus::-moz-placeholder{
+    color: var(--uiFieldPlaceholderColor);
+    overflow: hidden;
+  }
+  
+  /*
+  =====
+  CORE STYLES
+  =====
+  */
+  
+  .field{
+    --uiFieldBorderWidth: var(--fieldBorderWidth, 2px);
+    --uiFieldPaddingRight: var(--fieldPaddingRight, 1rem);
+    --uiFieldPaddingLeft: var(--fieldPaddingLeft, 1rem);   
+    --uiFieldBorderColorActive: var(--fieldBorderColorActive, rgba(22, 22, 22, 1));
+  
+    display: var(--fieldDisplay, inline-flex);
+    position: relative;
+    font-size: var(--fieldFontSize, 1rem);
+    overflow: hidden;
+  }
+  
+  .field__input{
+    box-sizing: border-box;
+    width: var(--fieldWidth, 100%);
+    height: var(--fieldHeight, 3rem);
+    padding: var(--fieldPaddingTop, 1.25rem) var(--uiFieldPaddingRight) var(--fieldPaddingBottom, .5rem) var(--uiFieldPaddingLeft);
+    border-bottom: var(--uiFieldBorderWidth) solid var(--fieldBorderColor, rgba(0, 0, 0, .25));  
+    overflow: hidden;
+  }
+  
+  .field__input:focus{
+    outline: none;
+    overflow: hidden;
+  }
+  
+  .field__input::-webkit-input-placeholder{
+    opacity: 0;
+    transition: opacity .2s ease-out;
+    overflow: hidden;
+  }
+  
+  .field__input::-moz-placeholder{
+    opacity: 0;
+    transition: opacity .2s ease-out;
+    overflow: hidden;
+  }
+  
+  .field__input:focus::-webkit-input-placeholder{
+    opacity: 1;
+    transition-delay: .2s;
+    overflow: hidden;
+  }
+  
+  .field__input:focus::-moz-placeholder{
+    opacity: 1;
+    transition-delay: .2s;
+    overflow: hidden;
+  }
+  
+  .field__label-wrap{
+    box-sizing: border-box;
+    pointer-events: none;
+    cursor: text;
+  overflow: hidden;
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+  }
+  
+  .field__label-wrap::after{
+    content: "";
+    box-sizing: border-box;
+    width: 100%;
+    height: 0;
+    opacity: 0;
+    overflow: hidden;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+  }
+  
+  .field__input:focus ~ .field__label-wrap::after{
+    opacity: 1;
+    overflow: hidden;
+  }
+  
+  .field__label{
+    position: absolute;
+    left: var(--uiFieldPaddingLeft);
+    top: calc(50% - .9em);
+  
+    line-height: 1;
+    font-size: var(--fieldHintFontSize, inherit);
+    overflow: hidden;
+    transition: top .2s cubic-bezier(0.9, -0.15, 0.1, 1.15), opacity .2s ease-out, font-size .2s ease-out;
+  }
+  
+  .field__input:focus ~ .field__label-wrap .field__label,
+  .field__input:not(:placeholder-shown) ~ .field__label-wrap .field__label{
+    --fieldHintFontSize: var(--fieldHintFontSizeFocused, .75rem);
+    overflow: hidden;
+color :grey;
+    top: var(--fieldHintTopHover, .01rem);
+  }
+  
+  /* 
+  effect 1
+  */
+  
+  .field_v1 .field__label-wrap::after{
+    border-bottom: var(--uiFieldBorderWidth) solid var(--uiFieldBorderColorActive);
+    transition: opacity .2s ease-out;
+    overflow: hidden;
+  }
+  
+  /* 
+  effect 2
+  */
+  
+  .field_v2 .field__label-wrap{
+    overflow: hidden;
+  }
+  
+  .field_v2 .field__label-wrap::after{
+    border-bottom: var(--uiFieldBorderWidth) solid var(--uiFieldBorderColorActive);
+    transform: translate3d(-105%, 0, 0);
+    overflow: hidden;
+    transition: transform .285s ease-out .2s, opacity .2s ease-out .2s;
+  }
+  
+  .field_v2 .field__input:focus ~ .field__label-wrap::after{
+    transform: translate3d(0, 0, 0);
+    transition-delay: 0;
+    overflow: hidden;
+  }
+  
+  /*
+  effect 3
+  */
+  
+  .field_v3 .field__label-wrap::after{
+    overflow: hidden;
+    border: var(--uiFieldBorderWidth) solid var(--uiFieldBorderColorActive);
+    transition: height .2s ease-out, opacity .2s ease-out;
+  }
+  
+  .field_v3 .field__input:focus ~ .field__label-wrap::after{
+    height: 100%;
+    overflow: hidden;
+  }
+  
+  
+  .field{
+    --fieldBorderColor: #D1C4E9;
+    --fieldBorderColorActive: #4a9e5f;
+    overflow: hidden;
+  }
+  
 
 
+  .page{
+    box-sizing: border-box;
+    width: 100%;
+    max-width: 480px;
+    margin: auto;
+    padding: 1rem;
+    overflow: hidden;
+    display: grid;
+    grid-gap: 30px;
+  }
+  
+  .linktr{
+    overflow: hidden;
+    order: -1;
+    padding: 1.75rem;
+    text-align: center;
+  }
+  
+  .linktr__goal{
+    overflow: hidden;
+    background-color: rgb(209, 246, 255);
+    color: rgb(8, 49, 112);
+    box-shadow: rgb(8 49 112 / 24%) 0px 2px 8px 0px;
+    border-radius: 2rem;
+    padding: .5rem 1.25rem;
+  }
+   /*
+  =====
+  ITT VÉGZŐDIK
+  =====
+  */
+  #images{
+    height: 50px !important;
+  }
+  .drop-container {
+    position: relative;
+    display: flex;
+    gap: 10px;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 200px;
+    padding: 20px;
+    border-radius: 10px;
+    border: 2px dashed #555;
+    color: #444;
+    cursor: pointer;
+    transition: background .2s ease-in-out, border .2s ease-in-out;
+  }
+  
+  .drop-container:hover {
+    background: #eee;
+    border-color: #111;
+  }
+  
+  .drop-container:hover .drop-title {
+    overflow: hidden;
+    color: #222;
+  }
+  
+  .drop-title {
+    overflow: hidden;
+    color: #444;
+    font-size: 20px;
+    font-weight: bold;
+    text-align: center;
+    transition: color .2s ease-in-out;
+  }
+  
+  input[type=file] {
+    width: 350px;
+    max-width: 100%;
+    color: #444;
+    padding: 5px;
+    background: #fff;
+    border-radius: 10px;
+    border: 1px solid #555;
+  }
+  
+  input[type=file]::file-selector-button {
+    margin-right: 20px;
+    border: none;
+    background: #579146;
+    padding: 10px 20px;
+    border-radius: 10px;
+    color: #fff;
+    cursor: pointer;
+    transition: background .2s ease-in-out;
+  }
+  
+  input[type=file]::file-selector-button:hover {
+    background: #519b4b;
+  }
+
+  @media (min-width: 1024px){
+    
+    .linktr{
+      position: absolute; 
+      right: 1rem; 
+      bottom: 1rem;
+    }
+  }
+  
+  .r-link{
+      --uirLinkDisplay: var(--rLinkDisplay, inline-flex);
+      --uirLinkTextColor: var(--rLinkTextColor);
+      --uirLinkTextDecoration: var(--rLinkTextDecoration, none);
+  
+      display: var(--uirLinkDisplay) !important;
+      color: var(--uirLinkTextColor) !important;
+      text-decoration: var(--uirLinkTextDecoration) !important;
+  }
 
 
 

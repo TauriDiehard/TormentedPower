@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="{{ secure_asset('register_css/style.css') }}">
+  <link rel="stylesheet" href="register_css/style.css">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <link rel="stylesheet" href="fonts/material-icon/css/material-design-iconic-font.min.css">
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -29,29 +29,17 @@
                     <ul class="nav-links">
     
                         <li id="kezdo-mobile">
-                            <a href="/" id="kezdo">Kezdőlap</a>
+                            <a href="/" id="kezdo">Homepage</a>
                         </li>
                         
                         <li  id="info-mobile">
-                            <a href="#" id="info" >Info</a>
+                            <a href="Info" id="info" >Logs</a>
                         </li>
     
                         <li id="addon-mobile">
                             <a href="Addon">Addons</a>
                         </li>
                        
-                        <li id="yticon">
-                          <a href="#"><span class="fa-brands fa-youtube" aria-hidden="true" style="font-size:20px"></span></a>
-                        </li>
-    
-                        <li id="dcicon" >
-                            <span class="bi bi-discord" style="font-size:20px"></span>
-                        </li>
-    
-                        <li id="progressicon">
-                            <a href="https://tauriprogress.github.io/guild/Tormented%20Power?realm=[HU]%20Tauri%20WoW%20Server"><img id="progresskep" src="{{asset('Index_kepek/tauriprogresslogo.png')}}" height="20px">
-                            </a>
-                        </li>
                     
                     </ul>
                 </div>
@@ -62,7 +50,7 @@
                 <div class="line3"></div>
             </div>
         </nav>
-        <script src={{asset('Index_js/mainjava.js')}}></script>
+        <script src="Index_js/mainjava.js"></script>
         
         <div class="main">
             <!-- Sign up form -->
@@ -70,46 +58,48 @@
                 <div class="container">
                     <div class="signup-content">
                         <div class="signup-form">
-                            <h2 class="form-title">Regisztáció</h2>
+                            <h2 class="form-title">Registration</h2>
                             <form method="POST" action="/users" >
                                 @csrf
                                 <div class="form-group">
                                     <label for="name"><i class="zmdi zmdi-account material-icons-name"></i></label>
-                                    <input type="text" name="name" value="{{old('name')}}" id="name" placeholder="Név"/>
+                                    <input type="text" name="name" value="{{old('name')}}" id="name" placeholder="Name"/>
                                     @error('name')
-                                    <p class="text-red-500 text-xs mt-1" style="color:red">nincs kitöltve(Min 5 karater) vagy már használják ezt a felhasználónevet* </p>
+                                    <p class="text-red-500 text-xs mt-1" style="color:red">not filled in (Min 5 characters) or this username is already in use*</p>
                                     @enderror
                                 </div>
                                 <div class="form-group">
                                     <label for="email"><i class="zmdi zmdi-email"></i></label>
                                     <input type="email" name="email" value="{{old('email')}}" id="email" placeholder="Email"/>
                                     @error('email')
-                                    <p class="text-red-500 text-xs mt-1" style="color:red">nincs kitöltve vagy emailnek kell lennie és használják* </p>
+                                    <p class="text-red-500 text-xs mt-1" style="color:red">
+is not filled in or must be an email and is used* </p>
                                     @enderror
                                 </div>
                                 <div class="form-group">
                                     <label for="password"><i class="zmdi zmdi-lock"></i></label>
-                                    <input type="password" name="password" id="pass" placeholder="Jelszó"/>
+                                    <input type="password" name="password" id="pass" placeholder="Password"/>
                                     @error('password')
-                                    <p class="text-red-500 text-xs mt-1" style="color:red">nincs kitöltve(Min 6 karakter)* </p>
+                                    <p class="text-red-500 text-xs mt-1" style="color:red">not filled in (Min 6 characters)* </p>
                                     @enderror
                                 </div>
                                 <div class="form-group">
                                     <label for="password_confirmation"><i class="zmdi zmdi-lock-outline"></i></label>
-                                    <input type="password" name="password_confirmation" id="re_pass" placeholder="Jelszó megerősítés"/>
+                                    <input type="password" name="password_confirmation" id="re_pass" placeholder="password confirmation"/>
                                     @error('password_confirmation')
-                                    <p class="text-red-500 text-xs mt-1" style="color:red">nincs kitöltve vagy ugyan annak kell lennie* </p>
+                                    <p class="text-red-500 text-xs mt-1" style="color:red">not filled in or must be the same* </p>
                                     @enderror
                                 </div>
                                
                                 <div class="form-group form-button">
-                                    <input type="submit" id="signup" class="form-submit" value="Regisztrálok"/>
+                                    <input type="submit" id="signup" class="form-submit" value="Registration"/>
                                 </div>
                             </form>
                         </div>
                         <div class="signup-image">
                             <figure><img src="{{asset('Index_kepek/register_kep.png')}}" alt="sing up image"></figure>
-                            <a href="/login" class="signup-image-link">Van már fiokom!</a>
+                            <a href="/login" class="signup-image-link">
+I already have an account!</a>
                         </div>
                     </div>
                 </div>

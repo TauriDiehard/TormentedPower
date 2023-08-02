@@ -11,7 +11,7 @@
         "laravel/framework": "^8.75",
         "laravel/sanctum": "^2.11",
         "laravel/tinker": "^2.5",
-        "league/flysystem-aws-s3-v3": "^1.0"
+        "laravel/ui": "^3.4"
     },
     "require-dev": {
         "facade/ignition": "^2.5",
@@ -39,13 +39,13 @@
             "@php artisan package:discover --ansi"
         ],
         "post-update-cmd": [
-            "@php artisan vendor:publish --tag=laravel-assets --ansi --force"
+            "@/usr/bin/php artisan vendor:publish --tag=laravel-assets --ansi --force"
         ],
         "post-root-package-install": [
-            "@php -r \"file_exists('.env') || copy('.env.example', '.env');\""
+            "@/usr/bin/php -r \"file_exists('.env') || copy('.env.example', '.env');\""
         ],
         "post-create-project-cmd": [
-            "@php artisan key:generate --ansi"
+            "@/usr/bin/php artisan key:generate --ansi"
         ]
     },
     "extra": {
@@ -54,10 +54,10 @@
         }
     },
     "config": {
-        "php": "7.3",
         "optimize-autoloader": true,
         "preferred-install": "dist",
-        "sort-packages": true
+        "sort-packages": true,
+        "cache-dir": "/home/vol1000_8/epizy.com/epiz_34320754/htdocs/cache"
     },
     "minimum-stability": "dev",
     "prefer-stable": true
