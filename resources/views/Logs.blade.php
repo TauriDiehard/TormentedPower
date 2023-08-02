@@ -103,6 +103,7 @@ href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
               <div class="col-sm-3">
               </div> 
               <div class="col-sm-6 ">
+              <h2><b>{{ $out['data']['reportData']['report']['title']}}</b></h2>
               @foreach ($logocskak as $log)
                 <div class="card">
                     <div id="head" class="card-header">
@@ -114,7 +115,6 @@ href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
                     </div>
                 </div>
             @endforeach
-                    
                </div> 
             <div class="col-sm-3">
         </div> 

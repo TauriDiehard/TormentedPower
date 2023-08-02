@@ -10,6 +10,23 @@ use GuzzleHttp\RequestOptions;
 
 class WarcraftController extends Controller
 {
+    function getAccessToken(Request $request)
+    {
+        $clientID = $request->input('clientID');
+        $clientSecret = $request->input('clientSecret');
+        $client = new Client();
+        $response = $client->post('https://www.warcraftlogs.com/oauth/token', [
+            'form_params' => [
+                'grant_type' => 'client_credentials',
+                'client_id' => '994c9b3c-0312-489e-b081-8af7ca861b69',
+                'client_secret' => 'MW2DzOMPmMM9cLHKzyV6Vs96qwxaIhdLVkKsLgTc',
+            ],
+        ]);
+
+        $accessToken = json_decode($response->getBody()->getContents(), true)['access_token'];
+        return $accessToken;
+    }
+
     public function Info()
     {
         return view('Info');
@@ -31,9 +48,33 @@ class WarcraftController extends Controller
             'code' => 'required'
         ]);
         $logocskak = Logs::create($validatedData);
-        return redirect("Logs")->with(['logocskak' => $logocskak]);
+        
+        $kodocska = $validatedData['code'];
+        $clientID = '994c9b3c-0312-489e-b081-8af7ca861b69';
+        $clientSecret = 'MW2DzOMPmMM9cLHKzyV6Vs96qwxaIhdLVkKsLgTc';
+        $accessToken = $this->getAccessToken($request);
+        $title = '
+        query {
+            reportData {
+                report(code:"' . $kodocska . '") {
+                    title
+                }
+            }
+        }
+    ';
+    
+    $responseelso = Http::withHeaders([
+        'Content-Type' => 'application/json',
+        'Accept' => 'application/json',
+        'Authorization' => 'Bearer ' . $accessToken,
+    ])->get('https://www.warcraftlogs.com/api/v2/client', [
+        'query' =>  $title
+    ]);
+    $out = $responseelso->json();
+        return redirect("Logs")->with(['logocskak' => $logocskak, 'out' => $out]);
         
     }
+
     function executeGraphQLQuery($query, $accessToken)
     {
         $response = Http::withHeaders([
@@ -46,27 +87,11 @@ class WarcraftController extends Controller
 
         return $response->json();
     }
-    function getAccessToken(Request $request)
-    {
-        $clientID = $request->input('clientID');
-        $clientSecret = $request->input('clientSecret');
-        $client = new Client();
-        $response = $client->post('https://www.warcraftlogs.com/oauth/token', [
-            'form_params' => [
-                'grant_type' => 'client_credentials',
-                'client_id' => '994c9b3c-0312-489e-b081-8af7ca861b69',
-                'client_secret' => 'MW2DzOMPmMM9cLHKzyV6Vs96qwxaIhdLVkKsLgTc',
-            ],
-        ]);
 
-        $accessToken = json_decode($response->getBody()->getContents(), true)['access_token'];
-        return $accessToken;
-    }
 
     function testFetch(Request $request)
     {
         $kodocska = "X3BMCtAkL6cVfwKd";
-
         $clientID = '994c9b3c-0312-489e-b081-8af7ca861b69';
         $clientSecret = 'MW2DzOMPmMM9cLHKzyV6Vs96qwxaIhdLVkKsLgTc';
         $accessToken = $this->getAccessToken($request);
