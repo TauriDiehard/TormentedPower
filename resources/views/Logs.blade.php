@@ -99,19 +99,21 @@ href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
 
 
     <div class="container-xxl">
+
             <div class="row">
               <div class="col-sm-3">
               </div> 
               <div class="col-sm-6 ">
-              <h2><b>{{ $out['data']['reportData']['report']['title']}}</b></h2>
               @foreach ($logocskak as $log)
                 <div class="card">
-                    <div id="head" class="card-header">
+
+                    <div id="head"  class="card-header">
                         <h2><b>{{ $log->code }}</b></h2>
+                        <h2><b>{{ $log->title }}</b></h2>
                     </div>
                     <div class="card-body">
                         <p class="card-text"><b>leírás:</b> <br>{{ $log->id }}</p>
-                        <a id="gomb" href="/Addon" style="color:white;border:solid 2px green;width: 25%;height: 35px; text-align:middle;font-size:15px; " class="btn btn-primary"><b>Tovább</b></a>
+                        <a id="gomb" href="/Logs/{logocskak}" style="color:white;border:solid 2px green;width: 25%;height: 35px; text-align:middle;font-size:15px; " class="btn btn-primary"><b>Tovább</b></a>
                     </div>
                 </div>
             @endforeach

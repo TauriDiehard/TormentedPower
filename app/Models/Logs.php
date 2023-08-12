@@ -8,6 +8,6 @@ use Illuminate\Database\Eloquent\Model;
 class Logs extends Model
 {
     use HasFactory;
-    protected $fillable = ['code'];
+    protected $fillable = ['code','title'];
    
 }

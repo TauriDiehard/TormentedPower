@@ -24,12 +24,12 @@ use Illuminate\Support\Facades\Auth;
 // All listings
 Route::get('/Addon', [ListingContorller::class, 'addon']);
 Route::get('/Info', [WarcraftController::class, 'Info']);
-Route::get('/Logs', [WarcraftController::class, 'index'])->name('logs.index');
-
 Route::get('/Logs/uploader', [WarcraftController::class, 'Logs_uploader']);
-Route::post('/Logs/store', [WarcraftController::class,'store']); // /Logs/uploader -nál lévő submit | amit feltölrt a warcraft logsból
+Route::get('/Logs', [WarcraftController::class, 'index'])->name('logs');
+Route::get('/Logs/{logocskak}', [WarcraftController::class,'show'])->name('logs.show');
 
-Route::get('/Info', [WarcraftController::class, 'testFetch']);
+
+Route::post('/elegemvan', [WarcraftController::class,'store']); // /Logs/uploader -nál lévő submit | amit feltölrt a warcraft logsból
 // addon making 
 Route::get('/Addon/create', [ListingContorller::class,'create'])->middleware('auth');
 

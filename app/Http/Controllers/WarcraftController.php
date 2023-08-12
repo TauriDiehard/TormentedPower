@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 use Illuminate\Support\Facades\Http;
+use Illuminate\Support\Facades\Session;
 use Illuminate\Http\Request;
 use GuzzleHttp\Client;
 use App\Models\Logs;
@@ -10,6 +11,7 @@ use GuzzleHttp\RequestOptions;
 
 class WarcraftController extends Controller
 {
+    private $kod = "";
     function getAccessToken(Request $request)
     {
         $clientID = $request->input('clientID');
@@ -33,10 +35,9 @@ class WarcraftController extends Controller
     }
     public function index(Request $request)
     {   
-        $logocskak = Logs::all(); // Fetch all Logs objects
-        return view('Logs', ['logocskak' => $logocskak]);
         
-       
+        $logocskak = Logs::latest()->get(); // Fetch all Logs objects
+        return view('Logs', ['logocskak' => $logocskak]);
     }
     public function Logs_uploader()
     {
@@ -47,32 +48,40 @@ class WarcraftController extends Controller
         $validatedData = $request->validate([
             'code' => 'required'
         ]);
-        $logocskak = Logs::create($validatedData);
+        
         
         $kodocska = $validatedData['code'];
+        $log_code = $validatedData['code'];
         $clientID = '994c9b3c-0312-489e-b081-8af7ca861b69';
         $clientSecret = 'MW2DzOMPmMM9cLHKzyV6Vs96qwxaIhdLVkKsLgTc';
         $accessToken = $this->getAccessToken($request);
         $title = '
-        query {
-            reportData {
-                report(code:"' . $kodocska . '") {
-                    title
+            query {
+                reportData {
+                    report(code:"' . $kodocska . '") {
+                        title
+                    }
                 }
             }
-        }
-    ';
-    
-    $responseelso = Http::withHeaders([
-        'Content-Type' => 'application/json',
-        'Accept' => 'application/json',
-        'Authorization' => 'Bearer ' . $accessToken,
-    ])->get('https://www.warcraftlogs.com/api/v2/client', [
-        'query' =>  $title
-    ]);
-    $out = $responseelso->json();
-        return redirect("Logs")->with(['logocskak' => $logocskak, 'out' => $out]);
+        ';
         
+        $pogchamp = Http::withHeaders([
+            'Content-Type' => 'application/json',
+            'Accept' => 'application/json',
+            'Authorization' => 'Bearer ' . $accessToken,
+        ])->get('https://www.warcraftlogs.com/api/v2/client', [
+            'query' =>  $title
+        ]);
+        
+        $sajt = $pogchamp->json();
+        $title = $sajt['data']['reportData']['report']['title'];
+        
+        $logocskak = Logs::create([
+            'code' => $kodocska,
+            'title' => $title,
+        ]);
+        
+        return redirect()->route('logs', ['logocskak' => $logocskak]);
     }
 
     function executeGraphQLQuery($query, $accessToken)
@@ -89,9 +98,11 @@ class WarcraftController extends Controller
     }
 
 
-    function testFetch(Request $request)
+    public function show(Request $request,$logocskak)
     {
-        $kodocska = "X3BMCtAkL6cVfwKd";
+        
+        $kodocska = $logocskak->code;
+        dd($kodocska);
         $clientID = '994c9b3c-0312-489e-b081-8af7ca861b69';
         $clientSecret = 'MW2DzOMPmMM9cLHKzyV6Vs96qwxaIhdLVkKsLgTc';
         $accessToken = $this->getAccessToken($request);
@@ -292,8 +303,6 @@ $egyediklekeredezes = '
 
         
         //dd($outharmadik);
-        return view('Info', compact('out', 'outmasodik', 'outharmadik', 'outnegyedik'));
+        return view('Logs_listing', compact('out', 'outmasodik', 'outharmadik', 'outnegyedik'));
     }
-
-
 }
