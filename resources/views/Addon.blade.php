@@ -1,219 +1,192 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-    <!-- basic -->
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <!-- mobile metas -->
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="viewport" content="initial-scale=1, maximum-scale=1">
-    <link rel="icon" type="image/x-icon" href="Index_kepek/Tormenetedpowerlogo.png">
-    <!-- site metas -->
-    <title>Tormented | Addons</title>
+<html lang="zxx">
+	<head>
+		<title>Vengeance | Addon</title>
+		<meta charset="UTF-8">
+		<meta name="description" content="EndGam Gaming Magazine Template">
+		<meta name="keywords" content="endGam,gGaming, magazine, html">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<!-- Favicon -->
+		<link href="img/favicon.ico" rel="shortcut icon"/>
+	
+		<!-- Google Font -->
+		<link href="https://fonts.googleapis.com/css?family=Roboto:400,400i,500,500i,700,700i,900,900i" rel="stylesheet">
+	
+		<link href="https://fonts.cdnfonts.com/css/bastamanbold" rel="stylesheet">
+		<!-- Stylesheets -->
+		<link rel="stylesheet" href="css/bootstrap.min.css"/>
+		<link rel="stylesheet" href="css/font-awesome.min.css"/>
+		<link rel="stylesheet" href="css/slicknav.min.css"/>
+		<link rel="stylesheet" href="css/owl.carousel.min.css"/>
+		<link rel="stylesheet" href="css/magnific-popup.css"/>
+		<link rel="stylesheet" href="css/animate.css"/>
+	
+		<!-- Main Stylesheets -->
+		<link rel="stylesheet" href="css/style.css"/>
+		<link rel="stylesheet" 
+		href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+	
+	</head>
+<body>
+	<!-- Page Preloder -->
+	<div id="preloder">
+		<div class="loader"></div>
+	</div>
 
-    <link rel="icon" type="image/x-icon" href="Index_kepek/Tormenetedpowerlogo.png">
-  <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css'>  
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.7.2/font/bootstrap-icons.css">    
-  <link href="https://fonts.googleapis.com/css2?family=Roboto+Condensed:wght@300&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
-  <script src='https://kit.fontawesome.com/a076d05399.js' crossorigin='anonymous'></script>
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" integrity="sha512-9usAa10IRO0HhonpyAIVpjrylPvoDwiPUiKdWk5t3PyolY1cOd4DSE0Ga+ri4AuTroPR5aQvXU9xC6qOPnzFeg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-
-    <!-- bootstrap css -->
-    <link rel="stylesheet" href="css/index/bootstrap.min.css">
-    <!-- style css -->
-    <link rel="stylesheet" href="css/index/style_i.css">
-    <!-- responsive-->
-    <link rel="stylesheet" href="css/index/responsive.css">
-    <!-- awesome fontfamily -->
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
-    
-<style>
-  .addonkrealas {
-    z-index: 0;
-    display: flex;
-    position: fixed;
-    left: 0;
-    bottom: 0;
-    width: 100%;
-    height: 20%;
-    background-color: transparent;
-    color: white;
- }
- #apa:hover{
-background-color:green !important;
- }
- .child {
-    margin-left: auto;
-    order: 2;
-    margin-right: 5%;
-  }
- 
- </style>
-</head>
-<body class="main-layout">
-
-    <div id="mySidepanel" class="sidepanel">
-        <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">×</a>
-        <a class="active" href="/">Homepage</a>
-        <a href="Info">Logs</a>
-        <a href="Addon">Addons</a>
-    </div>
-    <!-- header -->
-    <header>
-        <!-- header inner -->
-        <div class="head-top">
-            <div class="container-fluid">
-                <div class="row d_flex">
-                    <div class="col-sm-3">
-                        <div class="logo">
-                            <a href="/">Tormented</a>
-                        </div>
-                    </div>
-                    <div class="col-sm-6">
-                        <ul class="social_icon text_align_right d_none">
-                            <li> <a class="active" href="/">Homepage</a></li>
-                            <li><a href="Info">Logs</a></li>
-                            <li><a href="Addon">Addons</a></li>
-                        </ul>
-                    </div>
-                    <div class="col-sm-3">
-                        <ul class="email text_align_right">
-                            
-                            <li>
-                                <button class="openbtn" onclick="openNav()"><img src="images/menu_btn.png"></button>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </header>
-        <script src="{{asset('Index_js/mainjava.js')}}"></script>
+	<!-- Header section -->
+	<header class="header-section">
+		<div class="header-warp">
+			<div class="header-bar-warp d-flex">
+				<!-- site logo -->
+				<a href="home.html" class="site-logo">
+					<img style="height: 40px;border-radius: 40%;" src="img/logo.webp" alt="">
+				</a>
+				<nav class="top-nav-area w-100">
+					<div class="user-panel">
+						<a href=""><i class="fa-brands fa-discord" aria-hidden="true" style="margin-right: 15px;"></i></a>
+						<a href=""><i class="fa-brands fa-youtube" aria-hidden="true"></i></a>
+					</div>
+					<!-- Menu -->
+					<ul class="main-menu primary-menu">
+						<li><a href="index.html">Home</a></li>
+						<li><a href="games.html">Logs</a>
+						</li>
+						<li><a href="review.html">Addons</a></li>
+						<li><a href="blog.html">Join Us</a></li>
+					</ul>
+				</nav>
+			</div>
+		</div>
+	</header>
+	<!-- Header section end -->
 
 
+	<!-- Page top section -->
+	<section class="page-top-section set-bg" data-setbg="img/Addon.jpeg">
+		<div class="page-info">
+			<h2>Addons</h2>
+			<div class="site-breadcrumb">
+				<a href="">Home</a>  /
+				<span>Addons</span>
+			</div>
+		</div>
+	</section>
+	<!-- Page top end-->
 
-        <div class="container-xxl">
-            <div class="row">
-              <div class="col-sm-4">
-                
-              <h5 class="card-header">
-                  
-                  @auth
-                  
-                  <form action="/logout" method="POST">
-                    <a href="/logout"><i  class="fa-solid fa-door-open" role="button" aria-hidden="true" style="font-size:25px;margin-right:inherit;float:right;"></i></a>
+
+	<!-- Review section -->
+	<section class="review-section">
+		<div class="container">
+			<div class="container" style="margin-bottom: 30px;">
+				<div class="row">
+					<div class="col-lg-4">
+					@auth
+					<form action="https://tormented.rf.gd/Tormented/public/logout" method="POST">
+                    <a href="https://tormented.rf.gd/Tormented/public/logout"><i  class="fa-solid fa-door-open" role="button" aria-hidden="true" style="font-size:25px;margin-right:inherit;float:right;"></i></a>
                   </form>
-                  <a href="/Addon/manage"><i class="fa-solid fa-gear" role="button" aria-hidden="true" style="font-size:25px;margin-right:30px;float:right;"></i></a>
+                  <a href="https://tormented.rf.gd/Tormented/public/Addon/manage"><i class="fa-solid fa-gear" role="button" aria-hidden="true" style="font-size:25px;margin-right:30px;float:right;"></i></a>
                   @else
-                  <a href="/login"><i class="fa-solid fa-arrow-right-from-bracket" role="button" aria-hidden="true" style="font-size:25px;margin-right:inherit;margin-left:35px;float:right;"></i></a>
-                    <a href="/register"><i class="fa-solid fa-user-plus" role="button" aria-hidden="true" style="font-size:25px;margin-right:inherit;float:right;"></i></a>
+                  <a href="https://tormented.rf.gd/Tormented/public/login"><i class="fa-solid fa-arrow-right-from-bracket" role="button" aria-hidden="true" style="font-size:25px;margin-right:inherit;margin-left:35px;float:right;"></i></a>
+                    <a href="https://tormented.rf.gd/Tormented/public/register"><i class="fa-solid fa-user-plus" role="button" aria-hidden="true" style="font-size:25px;margin-right:inherit;float:right;"></i></a>
                  @endauth
 
-                </h5>
-              </div>
-              @auth
-              <span class="font-bold uppercase" style="font-size:25px;color:white;">Üdv: <b>{{Auth::user()->name}}</b></span>
+					</div>
+					<div class="col-lg-4">
+				<form action="" method="GET" name="">
+				@auth
+              <span class="font-bold uppercase" style="font-size:25px;color:white;">Hey: <b>{{Auth::user()->name}}</b></span>
               @endauth
-
-            <div class="col-sm-4 ">
-              
-              <div class="container-addon">
-                    
-                    <form action="" method="GET" name="">
-                        <div class="search-box" style="">
-                          <button type="submit"  class="btn-search"><i class="fas fa-search"></i></button>
-                          <input type="text"  name="search" class="input-search" placeholder="Type to Search...">
-                        </div>
-                        </div>
-                        </form>
-                    <!--Addon panelek-->
-        </div> 
-      </div> 
-    </div> 
-  </div> 
-</div> 
-
-<div class="container-xxl">
-            <div class="row">
-              <div class="col-sm-3">
-              </div> 
-              <div class="col-sm-6 ">
-                
-              
-              @foreach ($listings as $listing)
-                    <x-listing-card :listing="$listing" />
-                    @endforeach
-                    <div class="pages">
-                      {{$listings->links('pagination::bootstrap-5')}}
-                    </div>
-               </div> 
-            <div class="col-sm-3">
-        </div> 
-      </div> 
-    </div> 
-  </div> 
-</div>
+					<div class="search-box">
+						<button class="btn-search"><i class="fas fa-search"></i></button>
+						<input type="text" class="input-search" placeholder="Type to Search...">
+					  </div>
+					</form>
+				</div>
+				<div class="col-lg-4"></div>
+			</div>
+			</div> 
+						@foreach ($listings as $listing)
+			
+			<div class="review-item">
+				<div class="row">
+					<div class="col-lg-4">
+						<div class="review-pic">
+							<img src="img/review/4.jpg" alt="">
+						</div>
+					</div>
+					<div class="col-lg-8">
+						<div class="review-content text-box text-white">
+							<div class="rating">
+							<small>{{$listing->created_at}}</small>
+							</div>
+							<div class="top-meta"><a href=""><div class="top-meta"><x-listing-tags :tagsCsv="$listing->tags" /></div></a></div>
+							<h3>{{$listing->title}}</h3>
+							<p>{{$listing->description}}</p>
+							<a href="Addon/{{$listing['id']}}" class="read-more">Read More  <img src="img/icons/double-arrow.png" alt="#"/></a>
+						</div>
+					</div>
+				</div>
+			</div>
+			@endforeach
+			
+		</div>
+	</section>
+	<!-- Review section end-->
 
 
-  <button class="scrollToTopBtn"></button>
+	<!-- Newsletter section -->
+	<section class="newsletter-section">
+		<div class="container">
+			<h2>Subscribe to our newsletter</h2>
+			<form class="newsletter-form">
+				<input type="text" placeholder="ENTER YOUR E-MAIL">
+				<button class="site-btn">subscribe  <img src="img/icons/double-arrow.png" alt="#"/></button>
+			</form>
+		</div>
+	</section>
+	<!-- Newsletter section end -->
 
 
+	<!-- Footer section -->
+	<footer class="footer-section">
+		<div class="container">
+			<div class="footer-left-pic">
+				<img src="img/footer-left-pic.png" alt="">
+			</div>
+			<div class="footer-right-pic">
+				<img src="img/footer-right-pic.png" alt="">
+			</div>
+			<a href="#" class="footer-logo">
+				<img src="./img/logo.png" alt="">
+			</a>
+			<ul class="main-menu footer-menu">
+				<li><a href="">Home</a></li>
+				<li><a href="">Games</a></li>
+				<li><a href="">Reviews</a></li>
+				<li><a href="">News</a></li>
+				<li><a href="">Contact</a></li>
+			</ul>
+			<div class="footer-social d-flex justify-content-center">
+				<a href="#"><i class="fa fa-pinterest"></i></a>
+				<a href="#"><i class="fa fa-facebook"></i></a>
+				<a href="#"><i class="fa fa-twitter"></i></a>
+				<a href="#"><i class="fa fa-dribbble"></i></a>
+				<a href="#"><i class="fa fa-behance"></i></a>
+			</div>
+			<div class="copyright"><a href="">Colorlib</a> 2018 @ All rights reserved</div>
+		</div>
+	</footer>
+	<!-- Footer section end -->
 
-  <script>
-    var scrollToTopBtn = document.querySelector(".scrollToTopBtn")
-    var rootElement = document.documentElement
-    
-    function handleScroll() {
-    
-      var scrollTotal = rootElement.scrollHeight - rootElement.clientHeight
-      if ((rootElement.scrollTop / scrollTotal ) > 0.80) {
-    
-        scrollToTopBtn.classList.add("showBtn")
-      } else {
-    
-        scrollToTopBtn.classList.remove("showBtn")
-      }
-    }
-    
-    function scrollToTop() {
-      // Scroll to top logic
-      rootElement.scrollTo({
-        top: 0,
-        behavior: "smooth"
-      })
-    }
-    scrollToTopBtn.addEventListener("click", scrollToTop)
-    document.addEventListener("scroll", handleScroll)
-    </script>
-        <div class="addonkrealas">
-          <div class="child" style="font-size: 20px;font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;">Make Addons Import <a href="/Addon/create"><button id="apa" style="color:white;border:solid 2px green; background-color:transparent;" role="button" align="right">Addon Create</button></a> </div>
-        </div>
 
- <footer>
-        <div class="footer">
-            <div class="copyright text_align_center ">
-               <div class="container ">
-                  <div class="row ">
-                     <div class="col-md-12 ">
-                        <p>Tormented Power All rights reserved</a></p>
-                     </div>
-                  </div>
-               </div>
-            </div>
-         </div>
-      </div>
-  </footer>
+	<!--====== Javascripts & Jquery ======-->
+	<script src="js/jquery-3.2.1.min.js"></script>
+	<script src="js/bootstrap.min.js"></script>
+	<script src="js/jquery.slicknav.min.js"></script>
+	<script src="js/owl.carousel.min.js"></script>
+	<script src="js/jquery.sticky-sidebar.min.js"></script>
+	<script src="js/jquery.magnific-popup.min.js"></script>
+	<script src="js/main.js"></script>
 
-      <!-- end footer -->
-      <!-- Javascript files-->
-      <script src="Index_js/jquery.min.js "></script>
-      <script src="Index_js/bootstrap.bundle.min.js "></script>
-      <script src="Index_js/jquery-3.0.0.min.js "></script>
-      <script src="Index_js/custom.js"></script>
+	</body>
 </html>
-
