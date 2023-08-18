@@ -38,8 +38,8 @@
 		<div class="header-warp">
 			<div class="header-bar-warp d-flex">
 				<!-- site logo -->
-				<a href="home.html" class="site-logo">
-					<img style="height: 40px;border-radius: 40%;" src="img/logo.webp" alt="">
+				<a href="/" class="site-logo">
+					<img style="height: 45px;border-radius: 40%; margin-top:-10px;" src="img/logo.webp" alt="">
 				</a>
 				<nav class="top-nav-area w-100">
 					<div class="user-panel">
@@ -48,12 +48,11 @@
 					</div>
 					<!-- Menu -->
 					<ul class="main-menu primary-menu">
-						<li><a href="index.html">Home</a></li>
+						<li><a href="/">Home</a></li>
 						<li><a href="Logs">Logs</a>
 						</li>
 						<li><a href="Addon">Addons</a></li>
 						<li><a href="blog.html">Join Us</a></li>
-						
 					</ul>
 				</nav>
 			</div>
@@ -115,24 +114,24 @@
 					<!-- Blog item -->
 					<div class="blog-item">
 						<div class="blog-thumb">
-							<img src="img/WoW-HallsofValor.webp" alt="">
+							<img src="img/598358-trial-of-valor.jpg" alt="">
 						</div>
 						<div class="blog-text text-box text-white">
 
 							<h3>We are in Top 8!	</h3>
-							<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eius-mod tempor incididunt ut labore et dolore magna aliqua. Quis ipsum suspendisse ultrices gravida. Lorem ipsum dolor sit amet, consecte-tur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.....</p>
+							<p>We're excited to share that in the Trial of Valor Raod, our guild, Vengeance, has achieved an impressive feat by securing a spot in the Top 8 rankings.</p>
 							<a href="#" class="read-more">Read More  <img src="img/icons/double-arrow.png" alt="#"/></a>
 						</div>
 					</div>
 					<!-- Blog item -->
 					<div class="blog-item">
 						<div class="blog-thumb">
-							<img src="/img/blog/2.jpg" alt="">
+							<img src="img/tgf.png" alt="">
 						</div>
 						<div class="blog-text text-box text-white">
-							<div class="top-meta">11.11.18  /  in <a href="">Games</a></div>
-							<h3>The best online game is out now!</h3>
-							<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eius-mod tempor incididunt ut labore et dolore magna aliqua. Quis ipsum suspendisse ultrices gravida. Lorem ipsum dolor sit amet, consecte-tur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.....</p>
+						
+							<h3>we are recruiting in our guild,Vengeance</h3>
+							<p>We're currently looking for new members to join our guild, Vengeance. If you're interested, feel free to reach out!</p>
 							<a href="#" class="read-more">Read More  <img src="img/icons/double-arrow.png" alt="#"/></a>
 						</div>
 					</div>
@@ -190,17 +189,18 @@
 
 	<!-- Featured section -->
 		<!-- Intro section -->
-		<section class="intro-section" style="background-image: url('img/twitch.jpg');">
+		<section class="intro-section" style="background-image: url('img/twitch.jpg'); background-repeat: no-repeat; background-position:center;background-size: cover;">
 			<div class="container">
 				<div class="row">
 					<div class="col-md-5">
 						<div class="intro-text-box text-box text-white">
-							<div class="green-rectangle" style="background: rgb(100,100,190);
+							
+							<div class="green-rectangle" style="  width: 100%;height: auto; background: rgb(100,100,190);
 							background: linear-gradient(166deg, rgba(100,100,190,1) 0%, rgba(100,100,190,1) 46%, rgba(143,0,255,0.9710083862646621) 92%);border-radius: 10%;padding: 30px;">
 								<h3 style="font-family: 'BastamanBold' !important;font-size:24px;">@php
 									echo date("F, Y");
 								@endphp  </h3>
-								<p style="font-family: 'BastamanBold' !important;font-size:14px;">Streaming pvp,m+, and Guild Raids</p>
+								<p style="font-family: 'BastamanBold' !important;font-size:14px; color:white;">Streaming pvp,m+, and Guild Raids</p>
 								<h4 style="font-family: 'BastamanBold' !important;font-size:12px;margin-top:-35px;"><i class="fa fa-clock-o" aria-hidden="true"></i> 18:00 - 22:00</h4>
 							  </div>
 	
@@ -218,7 +218,7 @@
                                 channel: "therealfather1",
                                 width: "100%",
                                 height: "100%",
-                                parent: ["localhost"],
+                                parent: ["local"],
                               };
                               var player = new Twitch.Player("test", options);
                               
@@ -235,22 +235,8 @@
 	<!-- Footer section -->
 	<footer class="footer-section">
 		<div class="container">
-			<ul class="main-menu footer-menu">
-				<li><a href="">Home</a></li>
-				<li><a href="">Games</a></li>
-				<li><a href="">Reviews</a></li>
-				<li><a href="">News</a></li>
-				<li><a href="">Contact</a></li>
-			</ul>
-			<div class="footer-social d-flex justify-content-center">
-				<a href="#"><i class="fa fa-pinterest"></i></a>
-				<a href="#"><i class
-					="fa fa-facebook"></i></a>
-				<a href="#"><i class="fa fa-twitter"></i></a>
-				<a href="#"><i class="fa fa-dribbble"></i></a>
-				<a href="#"><i class="fa fa-behance"></i></a>
-			</div>
-			<div class="copyright"><a href="">Colorlib</a> 2018 @ All rights reserved</div>
+
+			<div class="copyright"><a href="">Vengeance</a> 2018 @ All rights reserved</div>
 		</div>
 	</footer>
 	<!-- Footer section end -->

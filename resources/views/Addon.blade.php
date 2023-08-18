@@ -38,8 +38,8 @@
 		<div class="header-warp">
 			<div class="header-bar-warp d-flex">
 				<!-- site logo -->
-				<a href="home.html" class="site-logo">
-					<img style="height: 40px;border-radius: 40%;" src="img/logo.webp" alt="">
+				<a href="{{asset('/')}}" class="site-logo">
+				<img style="height: 45px;border-radius: 40%; margin-top:-10px;" src="img/logo.webp" alt="">
 				</a>
 				<nav class="top-nav-area w-100">
 					<div class="user-panel">
@@ -48,8 +48,8 @@
 					</div>
 					<!-- Menu -->
 					<ul class="main-menu primary-menu">
-						<li><a href="index.html">Home</a></li>
-						<li><a href="games.html">Logs</a>
+						<li><a href="{{asset('/')}}">Home</a></li>
+						<li><a href="{{asset('Logs')}}">Logs</a>
 						</li>
 						<li><a href="review.html">Addons</a></li>
 						<li><a href="blog.html">Join Us</a></li>
@@ -68,7 +68,31 @@
 			<div class="site-breadcrumb">
 				<a href="">Home</a>  /
 				<span>Addons</span>
+
 			</div>
+            <div class="site-breadcrumb">
+             @auth
+                 <span class="font-bold uppercase" style="font-size:25px;color:white;">You are logged with: <b>{{Auth::user()->name}}</b></span>
+                  @endauth
+            </div>
+
+            <div class="site-breadcrumb">
+            <div class="row">
+                <span>
+
+                @auth
+				<form action="logout" method="POST">
+                    Logout: <a href="{{asset('logout')}}"><i  class="fa-solid fa-door-open" role="button" aria-hidden="true" style="font-size:25px;margin-top:10px;color:white !important;"></i></a>
+                </form>
+                  Manage addons:<a href="{{asset('Addon/manage')}}"><i class="fa-solid fa-gear" role="button" aria-hidden="true" style="font-size:25px;margin-top:10px;color:white !important;"></i></a>
+                  @else
+                  Login: <a href="{{asset('login')}}"><i class="fa-solid fa-arrow-right-from-bracket" role="button" aria-hidden="true" style="font-size:25px;margin-top:10px;color:white !important;"></i></a>
+                    Register: <a href="{{asset('register')}}"><i class="fa-solid fa-user-plus" role="button" aria-hidden="true" style="font-size:25px;margin-top:10px;color:white !important;"></i></a>
+                 @endauth
+                </span>
+                </div>
+            </div>
+
 		</div>
 	</section>
 	<!-- Page top end-->
@@ -80,27 +104,19 @@
 			<div class="container" style="margin-bottom: 30px;">
 				<div class="row">
 					<div class="col-lg-4">
-					@auth
-					<form action="https://tormented.rf.gd/Tormented/public/logout" method="POST">
-                    <a href="https://tormented.rf.gd/Tormented/public/logout"><i  class="fa-solid fa-door-open" role="button" aria-hidden="true" style="font-size:25px;margin-right:inherit;float:right;"></i></a>
-                  </form>
-                  <a href="https://tormented.rf.gd/Tormented/public/Addon/manage"><i class="fa-solid fa-gear" role="button" aria-hidden="true" style="font-size:25px;margin-right:30px;float:right;"></i></a>
-                  @else
-                  <a href="https://tormented.rf.gd/Tormented/public/login"><i class="fa-solid fa-arrow-right-from-bracket" role="button" aria-hidden="true" style="font-size:25px;margin-right:inherit;margin-left:35px;float:right;"></i></a>
-                    <a href="https://tormented.rf.gd/Tormented/public/register"><i class="fa-solid fa-user-plus" role="button" aria-hidden="true" style="font-size:25px;margin-right:inherit;float:right;"></i></a>
-                 @endauth
+
 
 					</div>
 					<div class="col-lg-4">
+                   
 				<form action="" method="GET" name="">
-				@auth
-              <span class="font-bold uppercase" style="font-size:25px;color:white;">Hey: <b>{{Auth::user()->name}}</b></span>
-              @endauth
 					<div class="search-box">
-						<button class="btn-search"><i class="fas fa-search"></i></button>
+						<button class="btn-search" style="background: rgb(40,57,255);
+background: linear-gradient(142deg, rgba(40,57,255,1) 0%, rgba(83,9,121,1) 76%);border: solid 2px white;"><i class="fas fa-search"></i></button>
 						<input type="text" class="input-search" placeholder="Type to Search...">
 					  </div>
 					</form>
+                   
 				</div>
 				<div class="col-lg-4"></div>
 			</div>
@@ -111,7 +127,7 @@
 				<div class="row">
 					<div class="col-lg-4">
 						<div class="review-pic">
-							<img src="img/review/4.jpg" alt="">
+							<img src="{{ $listing->logo ? asset('storage/'. $listing->logo ) : '' }}" alt="">
 						</div>
 					</div>
 					<div class="col-lg-8">
@@ -135,45 +151,13 @@
 
 
 	<!-- Newsletter section -->
-	<section class="newsletter-section">
-		<div class="container">
-			<h2>Subscribe to our newsletter</h2>
-			<form class="newsletter-form">
-				<input type="text" placeholder="ENTER YOUR E-MAIL">
-				<button class="site-btn">subscribe  <img src="img/icons/double-arrow.png" alt="#"/></button>
-			</form>
-		</div>
-	</section>
 	<!-- Newsletter section end -->
 
 
 	<!-- Footer section -->
 	<footer class="footer-section">
 		<div class="container">
-			<div class="footer-left-pic">
-				<img src="img/footer-left-pic.png" alt="">
-			</div>
-			<div class="footer-right-pic">
-				<img src="img/footer-right-pic.png" alt="">
-			</div>
-			<a href="#" class="footer-logo">
-				<img src="./img/logo.png" alt="">
-			</a>
-			<ul class="main-menu footer-menu">
-				<li><a href="">Home</a></li>
-				<li><a href="">Games</a></li>
-				<li><a href="">Reviews</a></li>
-				<li><a href="">News</a></li>
-				<li><a href="">Contact</a></li>
-			</ul>
-			<div class="footer-social d-flex justify-content-center">
-				<a href="#"><i class="fa fa-pinterest"></i></a>
-				<a href="#"><i class="fa fa-facebook"></i></a>
-				<a href="#"><i class="fa fa-twitter"></i></a>
-				<a href="#"><i class="fa fa-dribbble"></i></a>
-				<a href="#"><i class="fa fa-behance"></i></a>
-			</div>
-			<div class="copyright"><a href="">Colorlib</a> 2018 @ All rights reserved</div>
+			<div class="copyright"><a href="">Vengeance</a> 2018 @ All rights reserved</div>
 		</div>
 	</footer>
 	<!-- Footer section end -->

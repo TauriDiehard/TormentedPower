@@ -1,149 +1,140 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-    <!-- basic -->
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <!-- mobile metas -->
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="viewport" content="initial-scale=1, maximum-scale=1">
-    <link href="https://fonts.cdnfonts.com/css/bastamanbold" rel="stylesheet">
-    <link rel="icon" type="image/x-icon" href="Index_kepek/Tormenetedpowerlogo.png">
-    <!-- site metas -->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
-    <title>Tormented</title>
+<html lang="zxx">
+	<head>
+		<title>Vengeance | Addon</title>
+		<meta charset="UTF-8">
+		<meta name="description" content="EndGam Gaming Magazine Template">
+		<meta name="keywords" content="endGam,gGaming, magazine, html">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<!-- Favicon -->
+		<link href="img/favicon.ico" rel="shortcut icon"/>
+	
+		<!-- Google Font -->
+		<link href="https://fonts.googleapis.com/css?family=Roboto:400,400i,500,500i,700,700i,900,900i" rel="stylesheet">
+	
+		<link href="https://fonts.cdnfonts.com/css/bastamanbold" rel="stylesheet">
+		<!-- Stylesheets -->
+		<link rel="stylesheet" href="css/bootstrap.min.css"/>
+		<link rel="stylesheet" href="css/font-awesome.min.css"/>
+		<link rel="stylesheet" href="css/slicknav.min.css"/>
+		<link rel="stylesheet" href="css/owl.carousel.min.css"/>
+		<link rel="stylesheet" href="css/magnific-popup.css"/>
+		<link rel="stylesheet" href="css/animate.css"/>
+	
+		<!-- Main Stylesheets -->
+		<link rel="stylesheet" href="css/style.css"/>
+		<link rel="stylesheet" 
+		href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+	
+	</head>
+<body>
+	<!-- Page Preloder -->
+	<div id="preloder">
+		<div class="loader"></div>
+	</div>
 
-    <!-- bootstrap css -->
-    <link rel="stylesheet" href="css/index/bootstrap.min.css">
-    <!-- style css -->
-    <link rel="stylesheet" href="css/index/style_i.css">
-    <!-- responsive-->
-    <link rel="stylesheet" href="css/index/responsive.css">
-    <!-- awesome fontfamily -->
-    <link rel="stylesheet" 
-href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    
-<style>
-    body {
-      font-family: Arial, sans-serif;
-      text-align: center;
-    }
-    .input-container {
-      margin: 50px auto;
-      max-width: 300px;
-    }
-    input[type="text"] {
-      width: 100%;
-      padding: 10px;
-      font-size: 16px;
-      box-sizing: border-box;
-      border: 2px solid #ccc;
-      border-radius: 5px;
-      outline: none;
-    }
-    input[type="submit"] {
-      margin-top: 10px;
-      padding: 10px 20px;
-      font-size: 16px;
-      background-color: #4CAF50;
-      color: #fff;
-      border: none;
-      border-radius: 5px;
-      cursor: pointer;
-    }
-  </style>
-</head>
-<body class="main-layout">
+	<!-- Header section -->
+	<header class="header-section">
+		<div class="header-warp">
+			<div class="header-bar-warp d-flex">
+				<!-- site logo -->
+				<a href="{{asset('/')}}" class="site-logo">
+				<img style="height: 45px;border-radius: 40%; margin-top:-10px;" src="img/logo.webp" alt="">
+				</a>
+				<nav class="top-nav-area w-100">
+					<div class="user-panel">
+						<a href=""><i class="fa-brands fa-discord" aria-hidden="true" style="margin-right: 15px;"></i></a>
+						<a href=""><i class="fa-brands fa-youtube" aria-hidden="true"></i></a>
+					</div>
+					<!-- Menu -->
+					<ul class="main-menu primary-menu">
+						<li><a href="{{asset('/')}}">Home</a></li>
+						<li><a href="games.html">Logs</a>
+						</li>
+						<li><a href="review.html">Addons</a></li>
+						<li><a href="blog.html">Join Us</a></li>
+					</ul>
+				</nav>
+			</div>
+		</div>
+	</header>
+	<!-- Header section end -->
 
-    <div id="mySidepanel" class="sidepanel">
-        <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">×</a>
-        <a class="active" href="/">Homepage</a>
-        <a href="Info">Logs</a>
-        <a href="Addon">Addons</a>
-    </div>
-    <!-- header -->
-    <header>
-        <!-- header inner -->
-        <div class="head-top">
-            <div class="container-fluid">
-                <div class="row d_flex">
-                    <div class="col-sm-3">
-                        <div class="logo">
-                            <a href="/">Tormented</a>
+
+	<!-- Page top section -->
+	<section class="page-top-section set-bg" data-setbg="img/logok.png">
+		<div class="page-info">
+			<h2>Logs</h2>
+			<div class="site-breadcrumb">
+				<a href="">Home</a>  /
+				<span>Logs</span>
+
+			</div>
+            <div class="site-breadcrumb">
+
+            </div>
+
+            <div class="site-breadcrumb">
+            <div class="row">
+                <span>
+                </span>
+                </div>
+            </div>
+
+		</div>
+	</section>
+	<!-- Page top end-->
+
+
+	<!-- Review section -->
+	<section class="review-section">
+		<div class="container">
+			@foreach ($logocskak as $log)
+                <div class="review-item">
+                    <div class="row">
+                        <div class="col-lg-2">
+                        </div>
+                        <div class="col-lg-6">
+                            <div class="review-content text-box text-white" style="border:solid 1px white;">
+                                <div class="rating">
+                                <small>{{$log->created_at}}</small>
+                                </div>
+                                <h3>{{$log->title}}</h3>
+                                <a href="Logs/{{$log['id']}}" class="read-more">Read More  <img src="img/icons/double-arrow.png" alt="#"/></a>
+                            </div>
+                        </div>
+                        <div class="col-lg-2">
                         </div>
                     </div>
-                    
-                    <div class="col-sm-5">
-                        <ul class="social_icon text_align_right d_none">  
-                            <li> <a class="active" href="/">Homepage</a></li>
-                            <li><a href="Info">Logs</a></li>
-                            <li><a href="Addon">Addons</a></li>
-                        
-                        </ul>
-                    </div>
-                    <div class="col-sm-4">
-                        
-                        <ul class="email text_align_right">
-                            <li class="d_none"><a href="Javascript:void(0)"><i class="fa-brands fa-discord" aria-hidden="true"></i></a></li>
-                            <li class="d_none"> <a href="Javascript:void(0)"><i class="fa-brands fa-youtube" style="cursor: pointer;" aria-hidden="true"></i></a> </li>
-                            <li>
-                                <button class="openbtn" onclick="openNav()"><img src="images/menu_btn.png"></button>
-                            </li>
-                        </ul>
-                    </div>
                 </div>
-            </div>
-        </div>
-        <script src="{{asset('Index_js/mainjava.js')}}"></script>
-    </header>
+			@endforeach
+			
+		</div>
+	</section>
+	<!-- Review section end-->
 
 
-    <div class="container-xxl">
+	<!-- Newsletter section -->
+	<!-- Newsletter section end -->
 
-            <div class="row">
-              <div class="col-sm-3">
-              </div> 
-              <div class="col-sm-6 ">
-              @foreach ($logocskak as $log)
-                <div class="card">
 
-                    <div id="head"  class="card-header">
-                        <h2><b>{{ $log->code }}</b></h2>
-                        <h2><b>{{ $log->title }}</b></h2>
-                    </div>
-                    <div class="card-body">
-                        <p class="card-text"><b>leírás:</b> <br>{{ $log->id }}</p>
-                        <a id="gomb" href="/Logs/{logocskak}" style="color:white;border:solid 2px green;width: 25%;height: 35px; text-align:middle;font-size:15px; " class="btn btn-primary"><b>Tovább</b></a>
-                    </div>
-                </div>
-            @endforeach
-               </div> 
-            <div class="col-sm-3">
-        </div> 
-      </div> 
-    </div> 
-  </div> 
-</div>
+	<!-- Footer section -->
+	<footer class="footer-section">
+		<div class="container">
+			<div class="copyright"><a href="">Vengeance</a> 2018 @ All rights reserved</div>
+		</div>
+	</footer>
+	<!-- Footer section end -->
 
-<footer>
-    <div class="footer">
-        <div class="copyright text_align_center ">
-            <div class="container ">
-                <div class="row ">
-                    <div class="col-md-12 ">
-                        <p>Tormented Power All rights reserved</a></p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</footer>
 
-      <!-- end footer -->
-      <!-- Javascript files-->
-      <script src="Index_js/jquery.min.js "></script>
-      <script src="Index_js/bootstrap.bundle.min.js "></script>
-      <script src="Index_js/jquery-3.0.0.min.js "></script>
-      <script src="Index_js/custom.js"></script>
-   </body>
+	<!--====== Javascripts & Jquery ======-->
+	<script src="js/jquery-3.2.1.min.js"></script>
+	<script src="js/bootstrap.min.js"></script>
+	<script src="js/jquery.slicknav.min.js"></script>
+	<script src="js/owl.carousel.min.js"></script>
+	<script src="js/jquery.sticky-sidebar.min.js"></script>
+	<script src="js/jquery.magnific-popup.min.js"></script>
+	<script src="js/main.js"></script>
+
+	</body>
 </html>

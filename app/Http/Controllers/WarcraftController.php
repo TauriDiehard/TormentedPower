@@ -39,10 +39,12 @@ class WarcraftController extends Controller
         $logocskak = Logs::latest()->get(); // Fetch all Logs objects
         return view('Logs', ['logocskak' => $logocskak]);
     }
+
     public function Logs_uploader()
     {
         return view('Logs_uploader');
     }
+
     public function store(Request $request)
     {
         $validatedData = $request->validate([
@@ -81,7 +83,7 @@ class WarcraftController extends Controller
             'title' => $title,
         ]);
         
-        return redirect()->route('logs', ['logocskak' => $logocskak]);
+        return redirect()->route('logs.show', ['logocskak' => $logocskak]);
     }
 
     function executeGraphQLQuery($query, $accessToken)
@@ -98,211 +100,67 @@ class WarcraftController extends Controller
     }
 
 
-    public function show(Request $request,$logocskak)
+
+    public function show(Request $request, Logs $logocskak)
     {
-        
         $kodocska = $logocskak->code;
-        dd($kodocska);
-        $clientID = '994c9b3c-0312-489e-b081-8af7ca861b69';
-        $clientSecret = 'MW2DzOMPmMM9cLHKzyV6Vs96qwxaIhdLVkKsLgTc';
         $accessToken = $this->getAccessToken($request);
-        $idoelso = '
-            query {
-                reportData {
-                    report(code:"' . $kodocska . '") {
-                        fights(fightIDs:[1]) {
-                            startTime
-                            endTime
-                        }
-                    }
-                }
-            }
-                
-        ';
-
-        $elso = $this->executeGraphQLQuery($idoelso, $accessToken);
-
-        $startTimeelso = floatval($elso['data']['reportData']['report']['fights'][0]['startTime']);
-        $endTimeelso = floatval($elso['data']['reportData']['report']['fights'][0]['endTime']);
-
-        $elsolekeredezes = '
-            query {
-                reportData {
-                    report(code:"' . $kodocska . '") {
-                        fights(fightIDs:[1]) {
-                            keystoneLevel
-                            difficulty
-                            averageItemLevel
-                            name
-                        }
-                        damageDoneGraph: graph(dataType: DamageDone, startTime: ' . $startTimeelso . ', endTime: ' . $endTimeelso . ')
-                damageTakenGraph: graph(dataType: DamageTaken, startTime: ' . $startTimeelso . ', endTime: ' . $endTimeelso . ')
-                healingDoneGraph: graph(dataType: Healing, startTime: ' . $startTimeelso . ', endTime: ' . $endTimeelso . ')
-                dispellgDoneGraph: graph(dataType: Dispels, startTime: ' . $startTimeelso . ', endTime: ' . $endTimeelso . ')
-                DeathGraph: graph(dataType: Deaths, startTime: ' . $startTimeelso . ', endTime: ' . $endTimeelso . ')
-                    }
-                }
-            }
-        ';
-        //--------------------------------------------------------------------------------------------------------------------------
-        $idomasodik = '
-            query {
-                reportData {
-                    report(code:"' . $kodocska . '") {
-                        fights(fightIDs:[2]) {
-                            startTime
-                            endTime
-                        }
-                    }
-                }
-            }
-                
-        ';
-
-        $masodik = $this->executeGraphQLQuery($idomasodik, $accessToken);
-
-        $startTimemasodik = floatval($masodik['data']['reportData']['report']['fights'][0]['startTime']);
-        $endTimemasodik = floatval($masodik['data']['reportData']['report']['fights'][0]['endTime']);
-
-        $masodiklekeredezes = '
-            query {
-                reportData {
-                    report(code: "' . $kodocska . '") {
-                        fights(fightIDs:[2]) {
-                            keystoneLevel
-                            difficulty
-                            averageItemLevel
-                            name
-                        }
-                        damageDoneGraph: graph(dataType: DamageDone, startTime: ' . $startTimemasodik . ', endTime: ' . $endTimemasodik . ')
-                damageTakenGraph: graph(dataType: DamageTaken, startTime: ' . $startTimemasodik . ', endTime: ' . $endTimemasodik . ')
-                healingDoneGraph: graph(dataType: Healing, startTime: ' . $startTimemasodik . ', endTime: ' . $endTimemasodik . ')
-                dispellgDoneGraph: graph(dataType: Dispels, startTime: ' . $startTimemasodik . ', endTime: ' . $endTimemasodik . ')
-                DeathGraph: graph(dataType: Deaths, startTime: ' . $startTimemasodik . ', endTime: ' . $endTimemasodik . ')
-                    }
-                }
-            }
-        ';
-    //----------------------------------------------------------------------------------------------------------
-        $idoharmadik = '
-    query {
-        reportData {
-            report(code: "' . $kodocska . '") {
-                fights(fightIDs:[3]) {
-                    startTime
-                    endTime
-                }
-            }
+    
+        // Define an array of fight IDs
+        $fightIDs = [1, 2, 3, 4]; // Add more IDs if needed
+    
+        $queries = [];
+    
+        foreach ($fightIDs as $fightID) {
+            $query = $this->generateQuery($kodocska, $fightID, $accessToken);
+            $response = $this->executeGraphQLQuery($query, $accessToken);
+            $queries[$fightID] = $response;
         }
-    }    
-';
-
-$harmadik = $this->executeGraphQLQuery($idoharmadik, $accessToken);
-
-$starttimeharmadik = floatval($harmadik['data']['reportData']['report']['fights'][0]['startTime']);
-$endtimeharmadik = floatval($harmadik['data']['reportData']['report']['fights'][0]['endTime']);
-
-$harmadiklekeredezes = '
-    query {
-        reportData {
-            report(code: "' . $kodocska . '") {
-                fights(fightIDs:[3]) {
-                    keystoneLevel
-                    difficulty
-                    averageItemLevel
-                    name
-                }
-                damageDoneGraph: graph(dataType: DamageDone, startTime: ' . $starttimeharmadik . ', endTime: ' . $endtimeharmadik . ')
-                damageTakenGraph: graph(dataType: DamageTaken, startTime: ' . $starttimeharmadik . ', endTime: ' . $endtimeharmadik . ')
-                healingDoneGraph: graph(dataType: Healing, startTime: ' . $starttimeharmadik . ', endTime: ' . $endtimeharmadik . ')
-                dispellgDoneGraph: graph(dataType: Dispels, startTime: ' . $starttimeharmadik . ', endTime: ' . $endtimeharmadik . ')
-                DeathGraph: graph(dataType: Deaths, startTime: ' . $starttimeharmadik . ', endTime: ' . $endtimeharmadik . ')
-            }
-        }
+        return view('Logs_listing', compact('queries'));
     }
-';
 
-//----------------------------------------------------------------------------------------------------------
-$idonegyedik = '
-    query {
-        reportData {
-            report(code: "' . $kodocska . '") {
-                fights(fightIDs:[4]) {
-                    startTime
-                    endTime
+private function generateQuery($kodocska, $fightID, $accessToken)
+{
+    $fightQuery = "
+        query {
+            reportData {
+                report(code:\"$kodocska\") {
+                    fights(fightIDs:[$fightID]) {
+                        startTime
+                        endTime
+                        keystoneLevel
+                        difficulty
+                        averageItemLevel
+                        name
+                    }
                 }
             }
         }
-    }    
-';
+    ";
 
-$egyedik = $this->executeGraphQLQuery($idonegyedik, $accessToken);
+    // Execute the fight query and get startTime and endTime values
+    $fightResponse = $this->executeGraphQLQuery($fightQuery, $accessToken);
+    $fight = $fightResponse['data']['reportData']['report']['fights'][0];
+    $startTime = floatval($fight['startTime']);
+    $endTime = floatval($fight['endTime']);
 
-$starttimeegyedik = floatval($egyedik['data']['reportData']['report']['fights'][0]['startTime']);
-$endtimeegyedik = floatval($egyedik['data']['reportData']['report']['fights'][0]['endTime']);
-
-$egyediklekeredezes = '
-    query {
-        reportData {
-            report(code: "' . $kodocska . '") {
-                fights(fightIDs:[4]) {
-                    keystoneLevel
-                    difficulty
-                    averageItemLevel
-                    name
+    $damageQuery = "
+        query {
+            reportData {
+                report(code:\"$kodocska\") {
+                    fights(fightIDs:[$fightID]) {
+                        keystoneLevel
+                        difficulty
+                        averageItemLevel
+                        name
+                    }
+                    AllDataGraph: graph(dataTypes: [DamageDone, HealingDone, DamageTaken], startTime: $startTime, endTime: $endTime)
                 }
-                damageDoneGraph: graph(dataType: DamageDone, startTime: ' . $starttimeegyedik . ', endTime: ' . $endtimeegyedik . ')
-                damageTakenGraph: graph(dataType: DamageTaken, startTime: ' . $starttimeegyedik . ', endTime: ' . $endtimeegyedik . ')
-                healingDoneGraph: graph(dataType: Healing, startTime: ' . $starttimeegyedik . ', endTime: ' . $endtimeegyedik . ')
-                dispellgDoneGraph: graph(dataType: Dispels, startTime: ' . $starttimeegyedik . ', endTime: ' . $endtimeegyedik . ')
-                DeathGraph: graph(dataType: Deaths, startTime: ' . $starttimeegyedik . ', endTime: ' . $endtimeegyedik . ')
             }
         }
-    }
-';
-//----------------------------------------------------------------------------------------------------------
-        
+    ";
 
-        $responseelso = Http::withHeaders([
-            'Content-Type' => 'application/json',
-            'Accept' => 'application/json',
-            'Authorization' => 'Bearer ' . $accessToken,
-        ])->get('https://www.warcraftlogs.com/api/v2/client', [
-            'query' =>  $elsolekeredezes
-        ]);
+    return $damageQuery;
+}
 
-        $responsemasodik = Http::withHeaders([
-            'Content-Type' => 'application/json',
-            'Accept' => 'application/json',
-            'Authorization' => 'Bearer ' . $accessToken,
-        ])->get('https://www.warcraftlogs.com/api/v2/client', [
-            'query' =>  $masodiklekeredezes
-        ]);
-
-        $responseharmadik = Http::withHeaders([
-        'Content-Type' => 'application/json',
-        'Accept' => 'application/json',
-        'Authorization' => 'Bearer ' . $accessToken,
-        ])->get('https://www.warcraftlogs.com/api/v2/client', [
-            'query' =>  $harmadiklekeredezes
-        ]);
-
-        $responsenegyedik = Http::withHeaders([
-        'Content-Type' => 'application/json',
-        'Accept' => 'application/json',
-        'Authorization' => 'Bearer ' . $accessToken,
-        ])->get('https://www.warcraftlogs.com/api/v2/client', [
-            'query' =>  $egyediklekeredezes
-        ]);
-
-        $out = $responseelso->json();
-        $outmasodik = $responsemasodik->json();
-        $outharmadik = $responseharmadik->json();
-        $outnegyedik = $responsenegyedik->json();
-
-
-        
-        //dd($outharmadik);
-        return view('Logs_listing', compact('out', 'outmasodik', 'outharmadik', 'outnegyedik'));
-    }
 }
