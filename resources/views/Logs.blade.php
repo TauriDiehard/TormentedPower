@@ -51,7 +51,7 @@
 						<li><a href="{{asset('/')}}">Home</a></li>
 						<li><a href="games.html">Logs</a>
 						</li>
-						<li><a href="review.html">Addons</a></li>
+						<li><a href="{{asset('/Addon')}}">Addons</a></li>
 						<li><a href="blog.html">Join Us</a></li>
 					</ul>
 				</nav>
@@ -92,10 +92,10 @@
 			@foreach ($logocskak as $log)
                 <div class="review-item">
                     <div class="row">
-                        <div class="col-lg-2">
+                        <div class="col-lg-3">
                         </div>
                         <div class="col-lg-6">
-                            <div class="review-content text-box text-white" style="border:solid 1px white;">
+                            <div class="review-content text-box text-white">
                                 <div class="rating">
                                 <small>{{$log->created_at}}</small>
                                 </div>
@@ -103,7 +103,7 @@
                                 <a href="Logs/{{$log['id']}}" class="read-more">Read More  <img src="img/icons/double-arrow.png" alt="#"/></a>
                             </div>
                         </div>
-                        <div class="col-lg-2">
+                        <div class="col-lg-3">
                         </div>
                     </div>
                 </div>

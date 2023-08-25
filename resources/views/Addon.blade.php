@@ -144,6 +144,9 @@ background: linear-gradient(142deg, rgba(40,57,255,1) 0%, rgba(83,9,121,1) 76%);
 				</div>
 			</div>
 			@endforeach
+			<div class="pages">
+                      {{$listings->links('pagination::bootstrap-5')}}
+            </div>
 			
 		</div>
 	</section>

@@ -99,7 +99,7 @@ href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
 
 <body>
   <div class="input-container">
-  <form id="myForm" method="POST" action="/elegemvan" enctype="multipart/form-data">
+  <form id="myForm" method="POST" action="{{asset('/elegemvan')}}" enctype="multipart/form-data">
     @csrf
       <input type="text" name="code" id="Uploader" placeholder="Enter your text here">
       <input type="submit" value="Submit">

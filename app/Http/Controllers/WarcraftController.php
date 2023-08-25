@@ -105,12 +105,25 @@ class WarcraftController extends Controller
     {
         $kodocska = $logocskak->code;
         $accessToken = $this->getAccessToken($request);
-    
+
+
+        $fightIDs = []; // Initialize an empty array
+        $maxFightID = 15; // The maximum fight ID you want to include
+        $i = 1; // Initialize a counter
+
+        while ($i <= $maxFightID) {
+            // Generate the query and execute as before
+            $query = $this->generateQuery($kodocska, $i, $accessToken);
+            $response = $this->executeGraphQLQuery($query, $accessToken);
+
+            // Check if the response is valid, add to array if yes
+            if (isset($response['data']['reportData']['report']['fights'][0])) {
+                $fightIDs[] = $i;
+            }
+
+            $i++;
+        }
         // Define an array of fight IDs
-        $fightIDs = [1, 2, 3, 4]; // Add more IDs if needed
-    
-        $queries = [];
-    
         foreach ($fightIDs as $fightID) {
             $query = $this->generateQuery($kodocska, $fightID, $accessToken);
             $response = $this->executeGraphQLQuery($query, $accessToken);
@@ -154,7 +167,9 @@ private function generateQuery($kodocska, $fightID, $accessToken)
                         averageItemLevel
                         name
                     }
-                    AllDataGraph: graph(dataTypes: [DamageDone, HealingDone, DamageTaken], startTime: $startTime, endTime: $endTime)
+                    AllDataGraph: graph(dataType: DamageDone, startTime: $startTime, endTime: $endTime)
+                    HealingGraph: graph(dataType: Healing, startTime: $startTime, endTime: $endTime)
+                    DamageTakenGraph: graph(dataType: DamageTaken, startTime: $startTime, endTime: $endTime)
                 }
             }
         }
