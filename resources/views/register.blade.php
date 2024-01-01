@@ -59,7 +59,7 @@
                     <div class="signup-content">
                         <div class="signup-form">
                             <h2 class="form-title">Registration</h2>
-                            <form method="POST" action="/users" >
+                            <form method="POST" action="users" >
                                 @csrf
                                 <div class="form-group">
                                     <label for="name"><i class="zmdi zmdi-account material-icons-name"></i></label>

@@ -26,7 +26,7 @@
   
          <div class="container-addon">
             <div class="card">
-                <form id="myForm" method="POST" action="/Addon/store" enctype="multipart/form-data">
+                <form id="myForm" method="POST" action="{{asset('/Addon/store')}}" enctype="multipart/form-data">
                     @csrf
                     <div id="addnos-label">
                     <a href="/Addon" style="background-color:green !important;" class="btn btn- primary"> <-Vissza </a>

@@ -78,7 +78,7 @@ button {
 <div class="container">
 
 <h1>Pending Listings</h1>
-<button > <a href="/Addon" class="btn btn- primary"> <-Vissza </a> </button>
+<button > <a href="{{asset('/Addon')}}" class="btn btn- primary"> <-Vissza </a> </button>
 @foreach($listings as $listing)
     <div id="xd">
         <h2>{{ $listing->title }}</h2>

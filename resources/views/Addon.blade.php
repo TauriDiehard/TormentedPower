@@ -109,11 +109,11 @@
 					</div>
 					<div class="col-lg-4">
                    
-				<form action="" method="GET" name="">
+				<form action="" method="GET" >
 					<div class="search-box">
 						<button class="btn-search" style="background: rgb(40,57,255);
 background: linear-gradient(142deg, rgba(40,57,255,1) 0%, rgba(83,9,121,1) 76%);border: solid 2px white;"><i class="fas fa-search"></i></button>
-						<input type="text" class="input-search" placeholder="Type to Search...">
+						<input type="text" name="search" class="input-search" placeholder="Type to Search...">
 					  </div>
 					</form>
                    

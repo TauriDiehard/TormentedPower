@@ -1,11 +1,12 @@
 <!DOCTYPE html>
 <html lang="zxx">
 <head>
-	<title>Vengeance</title>
+	<title>TheSimps</title>
 	<meta charset="UTF-8">
 	<meta name="description" content="EndGam Gaming Magazine Template">
 	<meta name="keywords" content="endGam,gGaming, magazine, html">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="icon" type="image/x-icon" href="/img/faicon.png">
 	<!-- Favicon -->
 	<link href="img/favicon.ico" rel="shortcut icon"/>
 
@@ -66,9 +67,9 @@
 		<div class="hero-slider owl-carousel">
 			<div class="hero-item set-bg d-flex align-items-center justify-content-center text-center" data-setbg="img/top.jpg">
 				<div class="container">
-					<h2 style="text-shadow: 5px 0px 13px rgba(0, 0, 0, 1);">Join Us!</h2>
+					<h2 style="text-shadow: 5px 0px 13px rgba(0, 0, 0, 1);">CUM!</h2>
 					<p></p>
-					<a href="#" class="site-btn">Read More  <img src="img/icons/double-arrow.png" alt="#"/></a>
+					<a href="Addon" class="site-btn">Addons<img src="img/icons/double-arrow.png" alt=""/></a>
 				</div>
 			</div>
 		</div>
@@ -89,7 +90,7 @@
 					<div class="intro-text-box text-box text-white">
 
 						<h3>Discord</h3>
-						<p>Join Discord where events/raids are posted and where you can find good company</p>
+						<p>Joind discord only feet pics allowed</p>
 						<ul class="blog-filter">
 							<li><a href="#"> Join <img src="img/icons/double-arrow.png" alt="#"/> </a></li>
 						</ul>
@@ -108,74 +109,36 @@
 			<div class="row">
 				<div class="col-xl-9 col-lg-8 col-md-7">
 					<div class="section-title text-white">
-						<h2>Latest News</h2>
+						<h2>Info</h2>
 					</div>
 
 					<!-- Blog item -->
 					<div class="blog-item">
 						<div class="blog-thumb">
-							<img src="img/598358-trial-of-valor.jpg" alt="">
+							<img src="img/Warcraft_logs_logo.png" alt="">
 						</div>
 						<div class="blog-text text-box text-white">
-
-							<h3>We are in Top 8!	</h3>
-							<p>We're excited to share that in the Trial of Valor Raod, our guild, Vengeance, has achieved an impressive feat by securing a spot in the Top 8 rankings.</p>
-							<a href="#" class="read-more">Read More  <img src="img/icons/double-arrow.png" alt="#"/></a>
+							<h3>IDK Logs maybe (do not cum)</h3>
+							<p>Apparantly some logs to get GFs</p>
+							<a href="https://www.warcraftlogs.com/user/reports-list/2169265" class="read-more">Read More  <img src="img/icons/double-arrow.png" alt="#"/></a>
 						</div>
 					</div>
 					<!-- Blog item -->
-					<div class="blog-item">
-						<div class="blog-thumb">
-							<img src="img/tgf.png" alt="">
-						</div>
-						<div class="blog-text text-box text-white">
-						
-							<h3>we are recruiting in our guild,Vengeance</h3>
-							<p>We're currently looking for new members to join our guild, Vengeance. If you're interested, feel free to reach out!</p>
-							<a href="#" class="read-more">Read More  <img src="img/icons/double-arrow.png" alt="#"/></a>
-						</div>
-					</div>
+					
 					<!-- Blog item -->
 					
 				</div>
 				<div class="col-xl-3 col-lg-4 col-md-5 sidebar">
 					<div id="stickySidebar">
 						<div class="widget-item">
-							<h4 class="widget-title">Trending</h4>
-							<div class="trending-widget">
-								<div class="tw-item">
-									<div class="tw-thumb">
-										<img src="./img/blog-widget/1.jpg" alt="#">
-									</div>
-									<div class="tw-text">
-										<div class="tw-meta">11.11.18  /  in <a href="">Games</a></div>
-										<h5>The best online game is out now!</h5>
-									</div>
-								</div>
-								<div class="tw-item">
-									<div class="tw-thumb">
-										<img src="./img/blog-widget/2.jpg" alt="#">
-									</div>
-									<div class="tw-text">
-										<div class="tw-meta">11.11.18  /  in <a href="">Games</a></div>
-										<h5>The best online game is out now!</h5>
-									</div>
-								</div>
-								<div class="tw-item">
-									<div class="tw-thumb">
-										<img src="./img/blog-widget/3.jpg" alt="#">
-									</div>
-									<div class="tw-text">
-										<div class="tw-meta">11.11.18  /  in <a href="">Games</a></div>
-										<h5>The best online game is out now!</h5>
-									</div>
-								</div>
+							
+								
 								
 							</div>
 						</div>
 						<div class="widget-item">
 							
-								<iframe style="max-width: 100%;" src="https://discordapp.com/widget?id=1132536773164138638&theme=dark" width="350" height="500" allowtransparency="true" frameborder="0" sandbox="allow-popups allow-popups-to-escape-sandbox allow-same-origin allow-scripts"></iframe>
+								<iframe style="max-width: 100%;" src="https://discord.com/widget?id=964584415525228565&theme=dark" width="350" height="500" allowtransparency="true" frameborder="0" sandbox="allow-popups allow-popups-to-escape-sandbox allow-same-origin allow-scripts"></iframe>
 						
 						</div>
 						
@@ -215,7 +178,7 @@
 							
                             <script type="text/javascript">
                               var options = {
-                                channel: "therealfather1",
+                                channel: "tapy38",
                                 width: "100%",
                                 height: "100%",
                                 parent: ["local"],
@@ -236,7 +199,7 @@
 	<footer class="footer-section">
 		<div class="container">
 
-			<div class="copyright"><a href="">Vengeance</a> 2018 @ All rights reserved</div>
+			<div class="copyright"><a href="">TheSimps</a> 2023 @ All rights reserved</div>
 		</div>
 	</footer>
 	<!-- Footer section end -->

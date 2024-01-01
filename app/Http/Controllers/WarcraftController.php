@@ -8,14 +8,12 @@ use GuzzleHttp\Client;
 use App\Models\Logs;
 use GuzzleHttp\Exception\GuzzleException;
 use GuzzleHttp\RequestOptions;
+use PhpParser\Node\Stmt\TryCatch;
 
 class WarcraftController extends Controller
 {
-    private $kod = "";
-    function getAccessToken(Request $request)
+    function getAccessToken()
     {
-        $clientID = $request->input('clientID');
-        $clientSecret = $request->input('clientSecret');
         $client = new Client();
         $response = $client->post('https://www.warcraftlogs.com/oauth/token', [
             'form_params' => [
@@ -24,8 +22,10 @@ class WarcraftController extends Controller
                 'client_secret' => 'MW2DzOMPmMM9cLHKzyV6Vs96qwxaIhdLVkKsLgTc',
             ],
         ]);
+        
 
         $accessToken = json_decode($response->getBody()->getContents(), true)['access_token'];
+
         return $accessToken;
     }
 
@@ -33,7 +33,7 @@ class WarcraftController extends Controller
     {
         return view('Info');
     }
-    public function index(Request $request)
+    public function index()
     {   
         
         $logocskak = Logs::latest()->get(); // Fetch all Logs objects
@@ -50,12 +50,7 @@ class WarcraftController extends Controller
         $validatedData = $request->validate([
             'code' => 'required'
         ]);
-        
-        
         $kodocska = $validatedData['code'];
-        $log_code = $validatedData['code'];
-        $clientID = '994c9b3c-0312-489e-b081-8af7ca861b69';
-        $clientSecret = 'MW2DzOMPmMM9cLHKzyV6Vs96qwxaIhdLVkKsLgTc';
         $accessToken = $this->getAccessToken($request);
         $title = '
             query {
@@ -66,7 +61,6 @@ class WarcraftController extends Controller
                 }
             }
         ';
-        
         $pogchamp = Http::withHeaders([
             'Content-Type' => 'application/json',
             'Accept' => 'application/json',
@@ -105,35 +99,26 @@ class WarcraftController extends Controller
     {
         $kodocska = $logocskak->code;
         $accessToken = $this->getAccessToken($request);
-
-
-        $fightIDs = []; // Initialize an empty array
-        $maxFightID = 15; // The maximum fight ID you want to include
-        $i = 1; // Initialize a counter
-
-        while ($i <= $maxFightID) {
-            // Generate the query and execute as before
-            $query = $this->generateQuery($kodocska, $i, $accessToken);
-            $response = $this->executeGraphQLQuery($query, $accessToken);
-
-            // Check if the response is valid, add to array if yes
-            if (isset($response['data']['reportData']['report']['fights'][0])) {
-                $fightIDs[] = $i;
-            }
-
-            $i++;
-        }
+    
         // Define an array of fight IDs
+        $fightIDs =[1,2,3,4,5,6,7]; // Add more IDs if needed
+    
+        $queries = [];
+
         foreach ($fightIDs as $fightID) {
             $query = $this->generateQuery($kodocska, $fightID, $accessToken);
+            if(empty($query))
+            {
+                break;
+            }
             $response = $this->executeGraphQLQuery($query, $accessToken);
             $queries[$fightID] = $response;
         }
         return view('Logs_listing', compact('queries'));
     }
 
-private function generateQuery($kodocska, $fightID, $accessToken)
-{
+    private function generateQuery($kodocska, $fightID, $accessToken)
+    {
     $fightQuery = "
         query {
             reportData {
@@ -150,14 +135,19 @@ private function generateQuery($kodocska, $fightID, $accessToken)
             }
         }
     ";
-
     // Execute the fight query and get startTime and endTime values
     $fightResponse = $this->executeGraphQLQuery($fightQuery, $accessToken);
-    $fight = $fightResponse['data']['reportData']['report']['fights'][0];
-    $startTime = floatval($fight['startTime']);
-    $endTime = floatval($fight['endTime']);
+    if ($fightResponse['data']['reportData']['report']['fights'] === []) {
+        // Handle GraphQL errors
+        return null;
+    } 
+    // Check if the 'fights' array is not empty
+ 
+        $fight = $fightResponse['data']['reportData']['report']['fights'][0];
+        $startTime = floatval($fight['startTime']);
+        $endTime = floatval($fight['endTime']);
 
-    $damageQuery = "
+        $damageQuery = "
         query {
             reportData {
                 report(code:\"$kodocska\") {
@@ -174,8 +164,6 @@ private function generateQuery($kodocska, $fightID, $accessToken)
             }
         }
     ";
-
     return $damageQuery;
-}
-
+    }
 }

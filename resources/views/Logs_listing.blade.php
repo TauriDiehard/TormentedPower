@@ -12,6 +12,8 @@
 <button onclick="window.location.href='/'" class="btn btn-primary">Go back to Main Page</button>
 <h1>Boss Report</h1>
 @foreach ($queries as $fightID => $queryData)
+
+@if(isset($queryData['data']))
     <div class="container">
         <div class="table">
             <div class="table-header">
@@ -20,36 +22,37 @@
             <div class="table-content">
                 <div class="table-row">
 
-@foreach ($queryData['data']['reportData']['report']['fights'] as $fight)
-                    <div class="table-data">Boss: {{$fight['name']}}</div>
-                </div>
-                <div class="table-row">
-                    <div class="table-data">Keystone Level: {{$fight['keystoneLevel'] ?? '-'}}</div>
-                </div>
-                <div class="table-row">
-                    <div class="table-data">
-                        Difficulty:
-                        @php
-                        if ($fight['difficulty'] == 4) {
-                            echo "Mythic";
-                        } elseif ($fight['difficulty'] == 3) {
-                            echo "HC";
-                        } elseif ($fight['difficulty'] == 2) {
-                            echo "Normal";
-                        }
-                        @endphp
+    @foreach ($queryData['data']['reportData']['report']['fights'] as $fight)
+                        <div class="table-data">Boss: {{$fight['name']}}</div>
                     </div>
-                </div>
-                <div class="table-row">
-                    @php
-                    $time = round((($queryData['data']['reportData']['report']['AllDataGraph']['data']['endTime']) - ($queryData['data']['reportData']['report']['AllDataGraph']['data']['startTime'])) / (1000 * 60), 2);
-                    $minutes = floor($time);
-                    $seconds = round(($time - $minutes) * 60);
-                    $formatted_time = sprintf("%d:%02d", $minutes, $seconds);
-                    @endphp
-                    <div class="table-data">Time: {{$formatted_time}}</div>
-                </div>
-@endforeach
+                    <div class="table-row">
+                        <div class="table-data">Keystone Level: {{$fight['keystoneLevel'] ?? '-'}}</div>
+                    </div>
+                    <div class="table-row">
+                        <div class="table-data">
+                            Difficulty:
+                            @php
+                            if ($fight['difficulty'] == 4) {
+                                echo "Mythic";
+                            } elseif ($fight['difficulty'] == 3) {
+                                echo "HC";
+                            } elseif ($fight['difficulty'] == 2) {
+                                echo "Normal";
+                            }
+                            @endphp
+                        </div>
+                    </div>
+                    <div class="table-row">
+                        @php
+                        $time = round((($queryData['data']['reportData']['report']['AllDataGraph']['data']['endTime']) - ($queryData['data']['reportData']['report']['AllDataGraph']['data']['startTime'])) / (1000 * 60), 2);
+                        $minutes = floor($time);
+                        $seconds = round(($time - $minutes) * 60);
+                        $formatted_time = sprintf("%d:%02d", $minutes, $seconds);
+                        @endphp
+                        <div class="table-data">Time: {{$formatted_time}}</div>
+                    </div>
+    @endforeach
+
             </div>
         </div>
     </div>
@@ -109,7 +112,7 @@ foreach ($damageTakenSeries as $damageTakenData) {
                     <div class="table-data2"> 
                     @if(isset($data['name']))
                     <span style="color: 
-                    @if ($data['type'] == 'Warrior') rgb(161, 136, 127)
+                    @if($data['type'] == 'Warrior') rgb(161, 136, 127)
                     @elseif ($data['type'] == 'Warlock') rgb(179, 157, 219)
                     @elseif ($data['type'] == 'Rogue') rgb(255, 238, 88)
                     @elseif ($data['type'] == 'Hunter') rgb(102, 187, 106)
@@ -175,6 +178,7 @@ foreach ($damageTakenSeries as $damageTakenData) {
     </div>
 </div>
 
+
 <script>
         document.addEventListener("DOMContentLoaded", function () {
             const headers = {
@@ -238,6 +242,7 @@ function getValue(row, sortBy) {
            
         });
     </script>
+    @endif
 @endforeach
 
 </body>
