@@ -11,6 +11,9 @@
 <body>
 <button onclick="window.location.href='/'" class="btn btn-primary">Go back to Main Page</button>
 <h1>Boss Report</h1>
+
+
+
 @foreach ($queries as $fightID => $queryData)
 
 @if(isset($queryData['data']))
@@ -56,6 +59,7 @@
             </div>
         </div>
     </div>
+
 
 @php
 $DamageSeries = $queryData['data']['reportData']['report']['AllDataGraph']['data']['series'];

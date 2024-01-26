@@ -1,65 +1,15 @@
 <!DOCTYPE html>
-<html lang="zxx">
+<html lang="HU">
 <head>
 	<title>TheSimps</title>
-	<meta charset="UTF-8">
-	<meta name="description" content="EndGam Gaming Magazine Template">
-	<meta name="keywords" content="endGam,gGaming, magazine, html">
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<link rel="icon" type="image/x-icon" href="/img/faicon.png">
-	<!-- Favicon -->
-	<link href="img/favicon.ico" rel="shortcut icon"/>
-
-	<!-- Google Font -->
-	<link href="https://fonts.googleapis.com/css?family=Roboto:400,400i,500,500i,700,700i,900,900i" rel="stylesheet">
-
-	<link href="https://fonts.cdnfonts.com/css/bastamanbold" rel="stylesheet">
-	<!-- Stylesheets -->
-	<link rel="stylesheet" href="css/bootstrap.min.css"/>
-	<link rel="stylesheet" href="css/font-awesome.min.css"/>
-	<link rel="stylesheet" href="css/slicknav.min.css"/>
-	<link rel="stylesheet" href="css/owl.carousel.min.css"/>
-	<link rel="stylesheet" href="css/magnific-popup.css"/>
-	<link rel="stylesheet" href="css/animate.css"/>
-
-	<!-- Main Stylesheets -->
-	<link rel="stylesheet" href="css/style.css"/>
-	<link rel="stylesheet" 
-	href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-
+	@include('Parts/_head')
 </head>
-<body>
 	<!-- Page Preloder -->
 	<div id="preloder">
 		<div class="loader"></div>
 	</div>
 
-	<!-- Header section -->
-	<header class="header-section">
-		<div class="header-warp">
-			<div class="header-bar-warp d-flex">
-				<!-- site logo -->
-				<a href="/" class="site-logo">
-					<img style="height: 45px;border-radius: 40%; margin-top:-10px;" src="img/logo.webp" alt="">
-				</a>
-				<nav class="top-nav-area w-100">
-					<div class="user-panel">
-						<a href=""><i class="fa-brands fa-discord" aria-hidden="true" style="margin-right: 15px;"></i></a>
-						<a href=""><i class="fa-brands fa-youtube" aria-hidden="true"></i></a>
-					</div>
-					<!-- Menu -->
-					<ul class="main-menu primary-menu">
-						<li><a href="/">Home</a></li>
-						<li><a href="Logs">Logs</a>
-						</li>
-						<li><a href="Addon">Addons</a></li>
-						<li><a href="blog.html">Join Us</a></li>
-					</ul>
-				</nav>
-			</div>
-		</div>
-	</header>
-	<!-- Header section end -->
+	@include('Parts/_header')
 
 
 	<!-- Hero section -->
@@ -193,18 +143,7 @@
 			</div>
 		</section>
 	<!-- Featured section end-->
-
-
-	<!-- Footer section -->
-	<footer class="footer-section">
-		<div class="container">
-
-			<div class="copyright"><a href="">TheSimps</a> 2023 @ All rights reserved</div>
-		</div>
-	</footer>
-	<!-- Footer section end -->
-
-
+	@include('Parts/_footer')
 	<!--====== Javascripts & Jquery ======-->
 	<script src="js/jquery-3.2.1.min.js"></script>
 	<script src="js/bootstrap.min.js"></script>

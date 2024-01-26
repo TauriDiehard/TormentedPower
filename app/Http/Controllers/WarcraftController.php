@@ -36,7 +36,7 @@ class WarcraftController extends Controller
     public function index()
     {   
         
-        $logocskak = Logs::latest()->get(); // Fetch all Logs objects
+        $logocskak = Logs::latest()->paginate(3); // Fetch all Logs objects
         return view('Logs', ['logocskak' => $logocskak]);
     }
 

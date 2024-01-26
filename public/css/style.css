@@ -1221,7 +1221,7 @@ ol {
 	margin-left: 13px;
 }
 .page-link{
-background-color:#6d2ee2 !important;
+background-color:white !important;
 border-color:#6d2ee2 !important;
 color:black !important;
 }
@@ -1438,11 +1438,13 @@ color:black !important;
 ---------------------*/
 
 .review-item {
-	margin-bottom: 87px;
+	margin-bottom: 50px;
 }
 
 .review-content {
 	position: relative;
+
+	border-bottom: 1px solid grey;
 }
 
 .review-content h3 {
