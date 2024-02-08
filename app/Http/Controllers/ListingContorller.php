@@ -9,10 +9,10 @@ class ListingContorller extends Controller
 {
     public function addon()
     { 
-        return view('/Addon',[ 
-            
-            'listings' => Listing::where('status', true)->latest()->filter(request(['tag', 'search']))->paginate(4)
-        ]);
+        $listings = Listing::where('status', true)->latest()->filter(request(['tag', 'search']))->paginate(7);
+
+        return view('Addon', ['listings' => $listings]);
+
     }
     
     // Single Listing

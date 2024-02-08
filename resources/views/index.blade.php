@@ -19,7 +19,7 @@
 				<div class="container">
 					<h2 style="text-shadow: 5px 0px 13px rgba(0, 0, 0, 1);">CUM!</h2>
 					<p></p>
-					<a href="Addon" class="site-btn">Addons<img src="img/icons/double-arrow.png" alt=""/></a>
+					<a href="Addon" class="site-btn">Addonok<img src="img/icons/double-arrow.png" alt=""/></a>
 				</div>
 			</div>
 		</div>
@@ -38,11 +38,10 @@
 				</div>
 				<div class="col-md-5">
 					<div class="intro-text-box text-box text-white">
-
 						<h3>Discord</h3>
-						<p>Joind discord only feet pics allowed</p>
+						<p>Csak ha szeretnél csatlakozni funny simp szerverre.</p>
 						<ul class="blog-filter">
-							<li><a href="#"> Join <img src="img/icons/double-arrow.png" alt="#"/> </a></li>
+							<li><a href="https://discord.gg/872DwDdg"> Csatlakozok <img src="img/icons/double-arrow.png" alt="#"/> </a></li>
 						</ul>
 
 					</div>
@@ -53,51 +52,7 @@
 	<!-- Intro section end -->
 
 
-	<!-- Blog section -->
-	<section class="blog-section spad">
-		<div class="container">
-			<div class="row">
-				<div class="col-xl-9 col-lg-8 col-md-7">
-					<div class="section-title text-white">
-						<h2>Info</h2>
-					</div>
-
-					<!-- Blog item -->
-					<div class="blog-item">
-						<div class="blog-thumb">
-							<img src="img/Warcraft_logs_logo.png" alt="">
-						</div>
-						<div class="blog-text text-box text-white">
-							<h3>IDK Logs maybe (do not cum)</h3>
-							<p>Apparantly some logs to get GFs</p>
-							<a href="https://www.warcraftlogs.com/user/reports-list/2169265" class="read-more">Read More  <img src="img/icons/double-arrow.png" alt="#"/></a>
-						</div>
-					</div>
-					<!-- Blog item -->
-					
-					<!-- Blog item -->
-					
-				</div>
-				<div class="col-xl-3 col-lg-4 col-md-5 sidebar">
-					<div id="stickySidebar">
-						<div class="widget-item">
-							
-								
-								
-							</div>
-						</div>
-						<div class="widget-item">
-							
-								<iframe style="max-width: 100%;" src="https://discord.com/widget?id=964584415525228565&theme=dark" width="350" height="500" allowtransparency="true" frameborder="0" sandbox="allow-popups allow-popups-to-escape-sandbox allow-same-origin allow-scripts"></iframe>
-						
-						</div>
-						
-					</div>
-				</div>
-			</div>
-		</div>
-	</section>
-	<!-- Blog section end -->
+	
 
 
 	<!-- Featured section -->
@@ -128,7 +83,7 @@
 							
                             <script type="text/javascript">
                               var options = {
-                                channel: "tapy38",
+                                channel: "Tapy_tv",
                                 width: "100%",
                                 height: "100%",
                                 parent: ["local"],

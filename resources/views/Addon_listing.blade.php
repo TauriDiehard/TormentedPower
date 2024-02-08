@@ -1,31 +1,8 @@
 <!DOCTYPE html>
-<html lang="zxx">
+<html lang="HU">
 	<head>
-		<title>Vengeance | Listing</title>
-		<meta charset="UTF-8">
-		<meta name="description" content="EndGam Gaming Magazine Template">
-		<meta name="keywords" content="endGam,gGaming, magazine, html">
-		<meta name="viewport" content="width=device-width, initial-scale=1.0">
-		<!-- Favicon -->
-		<link href="img/favicon.ico" rel="shortcut icon"/>
-	
-		<!-- Google Font -->
-		<link href="https://fonts.googleapis.com/css?family=Roboto:400,400i,500,500i,700,700i,900,900i" rel="stylesheet">
-	
-		<link href="https://fonts.cdnfonts.com/css/bastamanbold" rel="stylesheet">
-		<!-- Stylesheets -->
-		<link rel="stylesheet" href="{{ asset('css/bootstrap.min.css')}}"/>
-		<link rel="stylesheet" href="{{ asset('css/font-awesome.min.css')}}"/>
-		<link rel="stylesheet" href="{{ asset('css/slicknav.min.css')}}"/>
-		<link rel="stylesheet" href="{{ asset('css/owl.carousel.min.css')}}"/>
-		<link rel="stylesheet" href="{{ asset('css/magnific-popup.css')}}"/>
-		<link rel="stylesheet" href="{{ asset('css/animate.css')}}"/>
-	
-		<!-- Main Stylesheets -->
-		<link rel="stylesheet" href="{{ asset('css/style.css')}}"/>
-		<link rel="stylesheet" 
-		href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-	
+	<title>Simp | Listák</title>
+		@include('Parts/_head')
 	</head>
 
   <body>
@@ -103,32 +80,7 @@ display:inline-block;
 	</div>
 
 	<!-- Header section -->
-	<!-- Header section -->
-	<header class="header-section">
-		<div class="header-warp">
-			<div class="header-bar-warp d-flex">
-				<!-- site logo -->
-				<a href="home.html" class="site-logo">
-        <img style="height: 45px;border-radius: 40%; margin-top:-10px;" src="img/logo.webp" alt="">
-				</a>
-				<nav class="top-nav-area w-100">
-					<div class="user-panel">
-						<a href=""><i class="fa-brands fa-discord" aria-hidden="true" style="margin-right: 15px;"></i></a>
-						<a href=""><i class="fa-brands fa-youtube" aria-hidden="true"></i></a>
-					</div>
-					<!-- Menu -->
-					<ul class="main-menu primary-menu">
-						<li><a href="/">Home</a></li>
-						<li><a href="Logs">Logs</a>
-						</li>
-						<li><a href="{{asset('Addon')}}">Addons</a></li>
-						<li><a href="blog.html">Join Us</a></li>
-						
-					</ul>
-				</nav>
-			</div>
-		</div>
-	</header>
+@include('Parts/_header')
 	<!-- Header section end -->
 
 	<!-- Page top section -->
@@ -136,8 +88,8 @@ display:inline-block;
 		<div class="page-info">
 			<h2>Listing</h2>
 			<div class="site-breadcrumb">
-				<a href="">Home</a>  /
-				<span>Listing</span>
+				<a href="/">Kezdőlap</a>  /
+				<span>Listák</span>
 			</div>
 		</div>
 	</section>
@@ -153,14 +105,14 @@ display:inline-block;
 				<div class="col-xl-9 col-lg-8 col-md-7 game-single-content">
         <div class="gs-meta">
         @if($listing->tags == "Elvui")
-                  <p id="warning" style="background-color:yellow;" align="center" class="card-text"><b><img   src="{{asset('Index_kepek\warning.png')}}">Attention, download the importable multifunctional Elvui: </b><a href="https://github.com/ElvUI-MoP/ElvUI-5.4.8"><b>Elvui</b></a><img  src="{{asset('Index_kepek\warning.png')}}"></p>
+                  <p id="warning" style="background-color:yellow;" align="center" class="card-text"><b><img   src="{{asset('Index_kepek\warning.png')}}">Figyelem, Töltsd le az importáltahtó Elvui ami csak ezzel működik: </b><a href="https://github.com/ElvUI-MoP/ElvUI-5.4.8"><b>Elvui</b></a><img  src="{{asset('Index_kepek\warning.png')}}"></p>
                   @else
-                  <p id="warning" style="background-color:yellow;" align="center" class="card-text"><b><img  src="{{asset('Index_kepek\warning.png')}}">Attention, download the importable multifunctional Weakaura: </b><a href="https://github.com/Maczuga/WeakAuras2-MoP/releases/tag/1.2.14"><b>Weakaura</b></a><img  src="{{asset('Index_kepek\warning.png')}}"></p>
+                  <p id="warning" style="background-color:yellow;" align="center" class="card-text"><b><img  src="{{asset('Index_kepek\warning.png')}}">Figyelem, Töltsd le az importáltahtó Weakaura-t ami csak ezzel működik: </b><a href="https://github.com/Maczuga/WeakAuras2-MoP/releases/tag/1.2.14"><b>Weakaura</b></a><img  src="{{asset('Index_kepek\warning.png')}}"></p>
         @endif
         </div>
 					<div class="gs-meta"><a href="">{{$listing->updated_at}}</a></div>
 					<h2 class="gs-title">{{$listing->title}}</h2>
-					<p>Description: <br>{{$listing->description}}</p>
+					<p>Leírás: <br>{{$listing->description}}</p>
 
             @if (!empty($listing->imgaddons))
               @foreach (json_decode($listing->imgaddons) as $imgaddon)
@@ -181,10 +133,9 @@ display:inline-block;
 							<div class="rating-widget">
 								<h4 class="widget-title">Info</h4>
 								<ul>
-									<li>Made by:<span>{{$listing->user->name}}</span></li>
-									<li>Type:<span>{{$listing->tags}}</span></li>
-                  <li>Rate:<span>N/A</span></li>
-									<li>Updated:<span>{{$listing->updated_at}}</span></li>
+									<li>Készítette:<span>{{$listing->user->name}}</span></li>
+									<li>Tipus:<span>{{$listing->tags}}</span></li>
+									<li>Frissítve:<span>{{$listing->updated_at}}</span></li>
 
 									
 								</ul>
@@ -206,7 +157,7 @@ display:inline-block;
   <div class="progress"></div>
 </div>
 
-									<h5 class="blog-filter" onclick="myFunction()"><li value="{{$listing->import}}"><a href="#"> Copy Import</a></li></h5>
+									<h5 class="blog-filter" onclick="myFunction()"><li value="{{$listing->import}}"><a href="#"> Addon Másolása </a></li></h5>
 <input type="text" value="{{$listing->import}}" id="myInput" style="position: absolute; left: -9999px;">
 <button  id="success-btn" style="display: none;">Success Button</button>
 
